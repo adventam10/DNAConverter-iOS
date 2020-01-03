@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6In-TY-U4T">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="J1a-hz-fUE">
+            <objects>
+                <navigationController id="6In-TY-U4T" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ur9-KC-Ei8">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="2SB-J9-oWG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IS0-Wo-a4c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-943" y="133"/>
+        </scene>
+        <!--DNA変換-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="DNAConverterViewController" customModule="DNAConverter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hNr-8C-VBC">
+                                <rect key="frame" x="16" y="104" width="382" height="32"/>
+                                <segments>
+                                    <segment title="ことば"/>
+                                    <segment title="ぬくれおちど"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changedMode:" destination="BYZ-38-t0r" eventType="valueChanged" id="KCs-FI-YbC"/>
+                                </connections>
+                            </segmentedControl>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="CcK-7V-g9V">
+                                <rect key="frame" x="16" y="143" width="382" height="654"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MUd-Bp-mSN" customClass="PlaceHolderTextView" customModule="DNAConverter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="327"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="テキストを入力してください"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vmg-FA-pp0">
+                                        <rect key="frame" x="0.0" y="327" width="382" height="327"/>
+                                        <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </stackView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W2O-2O-AA9">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <items>
+                                    <barButtonItem title="変換する" id="O7E-Jy-jCT">
+                                        <connections>
+                                            <action selector="convert:" destination="BYZ-38-t0r" id="EX8-lR-j12"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="2b5-uK-1hz"/>
+                                    <barButtonItem image="doc.text" catalog="system" id="ijk-Pa-3SW">
+                                        <connections>
+                                            <action selector="exportText:" destination="BYZ-38-t0r" id="vLn-Uh-wfL"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="doc.on.clipboard" catalog="system" id="haE-S2-IYs">
+                                        <connections>
+                                            <action selector="copyText:" destination="BYZ-38-t0r" id="zkx-JQ-zML"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="56" style="plain" systemItem="fixedSpace" id="SRy-yx-vFg"/>
+                                </items>
+                            </toolbar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WRr-EQ-bmQ">
+                                <rect key="frame" x="358" y="821" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="WRr-EQ-bmQ" secondAttribute="height" multiplier="1:1" id="bNn-gS-jKM"/>
+                                    <constraint firstAttribute="width" constant="40" id="o7x-LY-j0j"/>
+                                </constraints>
+                                <state key="normal" image="twitter"/>
+                                <connections>
+                                    <action selector="linkToTwitter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9aC-Zi-Xoj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WRr-EQ-bmQ" secondAttribute="trailing" constant="16" id="CZZ-0n-Wm4"/>
+                            <constraint firstItem="W2O-2O-AA9" firstAttribute="top" secondItem="CcK-7V-g9V" secondAttribute="bottom" constant="16" id="Qia-rL-bha"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hNr-8C-VBC" secondAttribute="trailing" constant="16" id="Rq5-iY-tJf"/>
+                            <constraint firstItem="CcK-7V-g9V" firstAttribute="top" secondItem="hNr-8C-VBC" secondAttribute="bottom" constant="8" id="X9s-8q-g97"/>
+                            <constraint firstItem="hNr-8C-VBC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="YGy-7U-mZX"/>
+                            <constraint firstItem="WRr-EQ-bmQ" firstAttribute="top" secondItem="W2O-2O-AA9" secondAttribute="top" constant="8" id="cc5-IS-Vgq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CcK-7V-g9V" secondAttribute="trailing" constant="16" id="eVJ-Qh-egK"/>
+                            <constraint firstItem="W2O-2O-AA9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="ec0-Ba-zKs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="W2O-2O-AA9" secondAttribute="trailing" id="h45-Ge-eNX"/>
+                            <constraint firstItem="hNr-8C-VBC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="j2T-Lh-nRd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="W2O-2O-AA9" secondAttribute="bottom" id="jby-yr-vf2"/>
+                            <constraint firstItem="CcK-7V-g9V" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="lja-qd-qb0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="DNA変換" id="hve-Cv-6Da">
+                        <barButtonItem key="leftBarButtonItem" title="Clear" id="MqP-WI-HMs">
+                            <connections>
+                                <action selector="clear:" destination="BYZ-38-t0r" id="uNL-YI-hTb"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="BaL-Ng-cN9">
+                            <connections>
+                                <action selector="share:" destination="BYZ-38-t0r" id="hU6-EO-rUf"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="convertedTextView" destination="Vmg-FA-pp0" id="ZYQ-LX-COD"/>
+                        <outlet property="modeSegmentedControl" destination="hNr-8C-VBC" id="N2w-Vf-eiC"/>
+                        <outlet property="originalTextView" destination="MUd-Bp-mSN" id="GER-2j-4Zp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="134"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="doc.on.clipboard" catalog="system" width="58" height="64"/>
+        <image name="doc.text" catalog="system" width="56" height="64"/>
+        <image name="twitter" width="300" height="300"/>
+    </resources>
+</document>

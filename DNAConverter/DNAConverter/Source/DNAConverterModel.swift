@@ -1,0 +1,106 @@
+//
+//  DNAConverterModel.swift
+//  DNAConverter
+//
+//  Created by am10 on 2020/01/03.
+//  Copyright © 2020 am10. All rights reserved.
+//
+
+import Foundation
+
+enum DNAConvertError: Error {
+    case empty
+    case invalid
+    var text: String {
+        return "むり..."
+    }
+}
+
+final class DNAConverterModel {
+    var twitterURL: URL? {
+        guard let convertedText = convertedText,
+            convertedText.isEmpty == false else {
+            return nil
+        }
+        if let encodedText = convertedText.urlEncoded,
+            let url = URL(string: "https://twitter.com/intent/tweet?text=\(encodedText + hashTag)") {
+            return url
+        }
+        return nil
+    }
+    var hashTag: String {
+        return "&hashtags=" + "DNA変換".urlEncoded!
+    }
+    var originalText: String?
+    var convertedText: String?
+
+    private let dnaHexValues: [String: String] =
+        ["AA": "0", "AT": "1", "AC": "2", "AG": "3",
+         "TA": "4", "TT": "5", "TC": "6", "TG": "7",
+         "CA": "8", "CT": "9", "CC": "a", "CG": "b",
+         "GA": "c", "GT": "d", "GC": "e", "GG": "f"]
+    private var dateFormatter: DateFormatter = {
+       var df = DateFormatter()
+        df.locale = Locale(identifier: "en_US_POSIX")
+        df.dateFormat = "yyyyMMddHHmmss"
+        return df
+    }()
+
+    func convertToDNA(_ text: String?) -> Result<String, DNAConvertError> {
+        guard let text = text,
+            text.isEmpty == false else {
+            return .failure(.empty)
+        }
+        var result = text.hex.lowercased()
+        dnaHexValues.forEach { dna, hex in
+            result = result.replacingOccurrences(of: hex, with: dna)
+        }
+        return .success(result)
+    }
+
+    func convertToLanguage(_ text: String?) -> Result<String, DNAConvertError> {
+        guard let text = text,
+            text.isEmpty == false else {
+            return .failure(.empty)
+        }
+        if !invalidDNA(text) {
+            return .failure(.invalid)
+        }
+        let hex = text.splitInto(2).compactMap { dnaHexValues[$0] }.joined()
+        if hex.isEmpty {
+            return .failure(.invalid)
+        }
+        if let data = hex.hexadecimal,
+            let result = String(data: data, encoding: .utf8) {
+            return .success(result)
+        }
+        return .failure(.invalid)
+    }
+
+    func invalidDNA(_ text: String?) -> Bool {
+        guard let text = text,
+            text.isEmpty == false else {
+            return false
+        }
+        if text.count % 2 != 0 {
+            return false
+        }
+        return text.isOnly(structuredBy: "ATCG")
+    }
+
+    func export(_ text: String?) -> Bool {
+        guard let text = text,
+            text.isEmpty == false else {
+            return false
+        }
+        let documentsPath = NSHomeDirectory() + "/Documents"
+        let fileName = dateFormatter.string(from: Date()) + ".txt"
+        let fileURL = URL(fileURLWithPath: documentsPath + "/" + fileName)
+        do {
+            try text.data(using: .utf8)?.write(to: fileURL)
+        } catch {
+            return false
+        }
+        return true
+    }
+}
