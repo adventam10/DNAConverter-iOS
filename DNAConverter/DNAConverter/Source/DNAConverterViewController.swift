@@ -84,9 +84,6 @@ final class DNAConverterViewController: UIViewController {
     }
 
     @IBAction private func changedMode(_ sender: Any) {
-        originalTextView.text = model.convertedText
-        convertedTextView.text = model.originalText
-        setTexts()
     }
 
     @IBAction private func copyText(_ sender: Any) {

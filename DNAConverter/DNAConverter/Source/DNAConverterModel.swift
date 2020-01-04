@@ -18,11 +18,10 @@ enum DNAConvertError: Error {
 
 final class DNAConverterModel {
     var twitterURL: URL? {
-        guard let convertedText = convertedText,
-            convertedText.isEmpty == false else {
+        if isEmptyText(convertedText) {
             return nil
         }
-        if let encodedText = convertedText.urlEncoded,
+        if let encodedText = convertedText!.urlEncoded,
             let url = URL(string: "https://twitter.com/intent/tweet?text=\(encodedText + hashTag)") {
             return url
         }
@@ -47,11 +46,10 @@ final class DNAConverterModel {
     }()
 
     func convertToDNA(_ text: String?) -> Result<String, DNAConvertError> {
-        guard let text = text,
-            text.isEmpty == false else {
+        if isEmptyText(text) {
             return .failure(.empty)
         }
-        var result = text.hex.lowercased()
+        var result = text!.hex.lowercased()
         dnaHexValues.forEach { dna, hex in
             result = result.replacingOccurrences(of: hex, with: dna)
         }
@@ -59,14 +57,13 @@ final class DNAConverterModel {
     }
 
     func convertToLanguage(_ text: String?) -> Result<String, DNAConvertError> {
-        guard let text = text,
-            text.isEmpty == false else {
+        if isEmptyText(text) {
             return .failure(.empty)
         }
-        if !invalidDNA(text) {
+        if invalidDNA(text) {
             return .failure(.invalid)
         }
-        let hex = text.splitInto(2).compactMap { dnaHexValues[$0] }.joined()
+        let hex = text!.splitInto(2).compactMap { dnaHexValues[$0] }.joined()
         if hex.isEmpty {
             return .failure(.invalid)
         }
@@ -78,14 +75,18 @@ final class DNAConverterModel {
     }
 
     func invalidDNA(_ text: String?) -> Bool {
+        if isEmptyText(text) || text!.count % 2 != 0 {
+            return true
+        }
+        return !text!.isOnly(structuredBy: "ATCG")
+    }
+
+    func isEmptyText(_ text: String?) -> Bool {
         guard let text = text,
             text.isEmpty == false else {
-            return false
+            return true
         }
-        if text.count % 2 != 0 {
-            return false
-        }
-        return text.isOnly(structuredBy: "ATCG")
+        return false
     }
 
     func export(_ text: String?) -> Bool {

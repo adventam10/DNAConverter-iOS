@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		0EC11D6023C04A4D002C2935 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0EC11D6223C04A4D002C2935 /* InfoPlist.strings */; };
 		0EC11D6623C04AE0002C2935 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0EC11D6823C04AE0002C2935 /* Localizable.strings */; };
+		0EC11D6B23C0530C002C2935 /* StringExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC11D6A23C0530C002C2935 /* StringExtensionsTests.swift */; };
+		0EC11D6D23C05322002C2935 /* DNAConverterModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC11D6C23C05322002C2935 /* DNAConverterModelTests.swift */; };
 		0EF348E623BF3773009AB96B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF348E523BF3773009AB96B /* AppDelegate.swift */; };
 		0EF348E823BF3773009AB96B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF348E723BF3773009AB96B /* SceneDelegate.swift */; };
 		0EF348ED23BF3773009AB96B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EF348EB23BF3773009AB96B /* Main.storyboard */; };
 		0EF348EF23BF3774009AB96B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EF348EE23BF3774009AB96B /* Assets.xcassets */; };
 		0EF348F223BF3774009AB96B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EF348F023BF3774009AB96B /* LaunchScreen.storyboard */; };
-		0EF348FD23BF3774009AB96B /* DNAConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF348FC23BF3774009AB96B /* DNAConverterTests.swift */; };
 		0EF3490823BF37AC009AB96B /* DNAConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF3490723BF37AC009AB96B /* DNAConverterViewController.swift */; };
 		0EF3490A23BF37FC009AB96B /* DNAConverterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF3490923BF37FC009AB96B /* DNAConverterModel.swift */; };
 		0EF3490C23BF3F9B009AB96B /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF3490B23BF3F9B009AB96B /* StringExtensions.swift */; };
@@ -40,6 +41,8 @@
 		0EC11D6323C04A53002C2935 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0EC11D6723C04AE0002C2935 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0EC11D6923C04AE2002C2935 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		0EC11D6A23C0530C002C2935 /* StringExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionsTests.swift; sourceTree = "<group>"; };
+		0EC11D6C23C05322002C2935 /* DNAConverterModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNAConverterModelTests.swift; sourceTree = "<group>"; };
 		0EF348E223BF3773009AB96B /* DNAConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DNAConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EF348E523BF3773009AB96B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EF348E723BF3773009AB96B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,7 +51,6 @@
 		0EF348F123BF3774009AB96B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0EF348F323BF3774009AB96B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EF348F823BF3774009AB96B /* DNAConverterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DNAConverterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0EF348FC23BF3774009AB96B /* DNAConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNAConverterTests.swift; sourceTree = "<group>"; };
 		0EF348FE23BF3774009AB96B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EF3490723BF37AC009AB96B /* DNAConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNAConverterViewController.swift; sourceTree = "<group>"; };
 		0EF3490923BF37FC009AB96B /* DNAConverterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNAConverterModel.swift; sourceTree = "<group>"; };
@@ -108,7 +110,8 @@
 		0EF348FB23BF3774009AB96B /* DNAConverterTests */ = {
 			isa = PBXGroup;
 			children = (
-				0EF348FC23BF3774009AB96B /* DNAConverterTests.swift */,
+				0EC11D6C23C05322002C2935 /* DNAConverterModelTests.swift */,
+				0EC11D6A23C0530C002C2935 /* StringExtensionsTests.swift */,
 				0EF348FE23BF3774009AB96B /* Info.plist */,
 			);
 			path = DNAConverterTests;
@@ -264,7 +267,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EF348FD23BF3774009AB96B /* DNAConverterTests.swift in Sources */,
+				0EC11D6B23C0530C002C2935 /* StringExtensionsTests.swift in Sources */,
+				0EC11D6D23C05322002C2935 /* DNAConverterModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
