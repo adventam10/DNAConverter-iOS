@@ -12,7 +12,7 @@ enum DNAConvertError: Error {
     case empty
     case invalid
     var text: String {
-        return "むり..."
+        return NSLocalizedString("error_message", comment: "")
     }
 }
 
@@ -29,7 +29,7 @@ final class DNAConverterModel {
         return nil
     }
     var hashTag: String {
-        return "&hashtags=" + "DNA変換".urlEncoded!
+        return "&hashtags=" + NSLocalizedString("hash_tag", comment: "").urlEncoded!
     }
     var originalText: String?
     var convertedText: String?

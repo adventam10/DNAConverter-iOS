@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  DNAConverter
+
+  Created by am10 on 2020/01/04.
+  Copyright © 2020 am10. All rights reserved.
+*/
+
+CFBundleDisplayName = "DNA変換";

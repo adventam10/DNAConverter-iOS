@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  DNAConverter
+
+  Created by am10 on 2020/01/04.
+  Copyright © 2020 am10. All rights reserved.
+*/
+
+"convert" = "変換する";
+"alert_message" = "むり...";
+"error_message" = "むり...";
+"original_place_holder" = "テキストを入力してください";
+"hash_tag" = "DNA変換";

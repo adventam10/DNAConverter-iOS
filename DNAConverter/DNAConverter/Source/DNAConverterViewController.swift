@@ -14,8 +14,11 @@ final class DNAConverterViewController: UIViewController {
     @IBOutlet private weak var convertedTextView: UITextView!
     @IBOutlet private weak var originalTextView: PlaceHolderTextView! {
         didSet {
+            originalTextView.placeHolder = NSLocalizedString("original_place_holder", comment: "")
             let toolBar = UIToolbar()
-            let button = UIBarButtonItem(title: "変換する", style: .done, target: self, action: #selector(convert(_:)))
+            let button = UIBarButtonItem(title: NSLocalizedString("convert", comment: ""),
+                                         style: .done, target: self,
+                                         action: #selector(convert(_:)))
             let space = UIBarButtonItem.init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
             toolBar.setItems([space, button], animated: false)
             toolBar.sizeToFit()
@@ -31,7 +34,7 @@ final class DNAConverterViewController: UIViewController {
     private var mode: Mode {
         return Mode(rawValue: modeSegmentedControl.selectedSegmentIndex)!
     }
-    private let alertMessage = "むり..."
+    private let alertMessage = NSLocalizedString("alert_message", comment: "")
 
     override func viewDidLoad() {
         super.viewDidLoad()

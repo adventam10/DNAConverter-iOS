@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  DNAConverter
+
+  Created by am10 on 2020/01/04.
+  Copyright © 2020 am10. All rights reserved.
+*/
+
+"convert" = "Convert";
+"alert_message" = "impossible😕";
+"error_message" = "impossible😕";
+"original_place_holder" = "Enter text";
+"hash_tag" = "DNA Converter";
