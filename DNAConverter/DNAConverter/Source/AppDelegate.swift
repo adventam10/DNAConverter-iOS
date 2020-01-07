@@ -32,6 +32,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+    #if targetEnvironment(macCatalyst)
+    override func buildMenu(with builder: UIMenuBuilder) {
+        guard builder.system == UIMenuSystem.main else { return }
 
+        // 初期メニューで不要なものを削除
+        builder.remove(menu: .file)
+        builder.remove(menu: .format)
+        builder.remove(menu: .help)
+        builder.remove(menu: .services)
+    }
+    #endif
 }
 

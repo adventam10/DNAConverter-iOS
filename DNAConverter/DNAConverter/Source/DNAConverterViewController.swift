@@ -76,11 +76,18 @@ final class DNAConverterViewController: UIViewController {
         view.endEditing(true)
         setTexts()
         if model.isInvalidDNA(model.convertedText) {
-            if model.export(model.convertedText) {
-                return
-            }
+            showAlert(message: alertMessage)
+            return
         }
-        showAlert(message: alertMessage)
+        #if targetEnvironment(macCatalyst)
+        let picker = UIDocumentPickerViewController(documentTypes: [kUTTypeFolder as String], in: .open)
+        picker.delegate = self
+        present(picker, animated: true)
+        #else
+        if !model.export(model.convertedText) {
+            showAlert(message: alertMessage)
+        }
+        #endif
     }
 
     @IBAction private func changedMode(_ sender: Any) {
@@ -116,3 +123,14 @@ final class DNAConverterViewController: UIViewController {
         }
     }
 }
+
+#if targetEnvironment(macCatalyst)
+extension DNAConverterViewController: UIDocumentPickerDelegate {
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        let url = urls.first!
+        if !model.export(model.convertedText, directoryPath: url.path) {
+            showAlert(message: alertMessage)
+        }
+    }
+}
+#endif

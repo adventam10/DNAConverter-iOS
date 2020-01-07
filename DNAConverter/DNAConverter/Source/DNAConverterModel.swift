@@ -89,14 +89,13 @@ final class DNAConverterModel {
         return false
     }
 
-    func export(_ text: String?) -> Bool {
+    func export(_ text: String?, directoryPath: String = NSHomeDirectory() + "/Documents") -> Bool {
         guard let text = text,
             text.isEmpty == false else {
             return false
         }
-        let documentsPath = NSHomeDirectory() + "/Documents"
         let fileName = dateFormatter.string(from: Date()) + ".txt"
-        let fileURL = URL(fileURLWithPath: documentsPath + "/" + fileName)
+        let fileURL = URL(fileURLWithPath: directoryPath + "/" + fileName)
         do {
             try text.data(using: .utf8)?.write(to: fileURL)
         } catch {
