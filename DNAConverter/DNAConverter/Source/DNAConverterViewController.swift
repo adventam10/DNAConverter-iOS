@@ -11,7 +11,12 @@ import UIKit
 final class DNAConverterViewController: UIViewController {
 
     @IBOutlet private weak var modeSegmentedControl: UISegmentedControl!
-    @IBOutlet private weak var convertedTextView: UITextView!
+    @IBOutlet private weak var convertedTextView: UITextView! {
+        didSet {
+            convertedTextView.layer.cornerRadius = 5
+            convertedTextView.layer.masksToBounds = true
+        }
+    }
     @IBOutlet private weak var originalTextView: PlaceHolderTextView! {
         didSet {
             originalTextView.placeHolder = NSLocalizedString("original_place_holder", comment: "")
