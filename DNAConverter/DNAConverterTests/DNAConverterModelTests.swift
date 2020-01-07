@@ -37,18 +37,18 @@ final class DNAConverterModelTests: XCTestCase {
         XCTAssertFalse(model.isEmptyText("　"))
     }
 
-    func testInvalidDNAWithText() {
+    func testIsInvalidDNAWithText() {
         let model = DNAConverterModel()
-        XCTAssertTrue(model.invalidDNA(""))
-        XCTAssertTrue(model.invalidDNA(nil))
-        XCTAssertTrue(model.invalidDNA("あいうえ"))
-        XCTAssertTrue(model.invalidDNA("愛飢男"))
-        XCTAssertTrue(model.invalidDNA("1234"))
-        XCTAssertTrue(model.invalidDNA("ABCD"))
-        XCTAssertTrue(model.invalidDNA("  "))
-        XCTAssertTrue(model.invalidDNA("　　"))
-        XCTAssertTrue(model.invalidDNA("AATTCCG"))
-        XCTAssertFalse(model.invalidDNA("AATTCCGG"))
+        XCTAssertTrue(model.isInvalidDNA(""))
+        XCTAssertTrue(model.isInvalidDNA(nil))
+        XCTAssertTrue(model.isInvalidDNA("あいうえ"))
+        XCTAssertTrue(model.isInvalidDNA("愛飢男"))
+        XCTAssertTrue(model.isInvalidDNA("1234"))
+        XCTAssertTrue(model.isInvalidDNA("ABCD"))
+        XCTAssertTrue(model.isInvalidDNA("  "))
+        XCTAssertTrue(model.isInvalidDNA("　　"))
+        XCTAssertTrue(model.isInvalidDNA("AATTCCG"))
+        XCTAssertFalse(model.isInvalidDNA("AATTCCGG"))
     }
 
     func testConvertToDNAWithText() {

@@ -60,7 +60,7 @@ final class DNAConverterModel {
         if isEmptyText(text) {
             return .failure(.empty)
         }
-        if invalidDNA(text) {
+        if isInvalidDNA(text) {
             return .failure(.invalid)
         }
         let hex = text!.splitInto(2).compactMap { dnaHexValues[$0] }.joined()
@@ -74,7 +74,7 @@ final class DNAConverterModel {
         return .failure(.invalid)
     }
 
-    func invalidDNA(_ text: String?) -> Bool {
+    func isInvalidDNA(_ text: String?) -> Bool {
         if isEmptyText(text) || text!.count % 2 != 0 {
             return true
         }

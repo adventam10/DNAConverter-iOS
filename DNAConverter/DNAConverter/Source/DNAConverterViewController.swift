@@ -62,7 +62,7 @@ final class DNAConverterViewController: UIViewController {
         view.endEditing(true)
         setTexts()
         guard let convertedText = model.convertedText,
-            model.invalidDNA(convertedText) else {
+            !model.isInvalidDNA(convertedText) else {
                 showAlert(message: alertMessage)
                 return
         }
@@ -75,7 +75,7 @@ final class DNAConverterViewController: UIViewController {
     @IBAction private func exportText(_ sender: Any) {
         view.endEditing(true)
         setTexts()
-        if model.invalidDNA(model.convertedText) {
+        if model.isInvalidDNA(model.convertedText) {
             if model.export(model.convertedText) {
                 return
             }
