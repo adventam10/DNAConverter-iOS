@@ -40,6 +40,7 @@ final class DNAConverterViewController: UIViewController {
         return Mode(rawValue: modeSegmentedControl.selectedSegmentIndex)!
     }
     private let alertMessage = NSLocalizedString("alert_message", comment: "")
+    private let alertMessageEmpty = NSLocalizedString("alert_message_empty", comment: "")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,8 +68,8 @@ final class DNAConverterViewController: UIViewController {
         view.endEditing(true)
         setTexts()
         guard let convertedText = model.convertedText,
-            !model.isInvalidDNA(convertedText) else {
-                showAlert(message: alertMessage)
+            !convertedText.isEmpty else {
+                showAlert(message: alertMessageEmpty)
                 return
         }
         let controller = UIActivityViewController(activityItems: [convertedText],

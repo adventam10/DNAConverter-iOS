@@ -7,7 +7,8 @@
 */
 
 "convert" = "変換する";
-"alert_message" = "むり...\n(この機能を利用できるのは塩基配列文字列のみです。)";
+"alert_message" = "むり...";
+"alert_message_empty" = "むり...\n(変換後の文字列が空文字です。)";
 "error_message" = "むり...";
 "original_place_holder" = "テキストを入力してください";
 "hash_tag" = "DNA変換";

@@ -7,7 +7,8 @@
 */
 
 "convert" = "Convert";
-"alert_message" = "impossible😕\n(This feature is only available to nucleotide sequence text.)";
+"alert_message" = "impossible😕";
+"alert_message_empty" = "impossible😕\n(Converted text is empty.)";
 "error_message" = "impossible😕";
 "original_place_holder" = "Enter text";
 "hash_tag" = "DNA Converter";
