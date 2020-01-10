@@ -7,3 +7,5 @@
 */
 
 CFBundleDisplayName = "DNA Converter";
+"NSSpeechRecognitionUsageDescription" = "Required for voice input";
+"NSMicrophoneUsageDescription" = "Required for voice input";

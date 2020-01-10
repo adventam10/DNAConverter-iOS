@@ -7,3 +7,5 @@
 */
 
 CFBundleDisplayName = "DNA変換";
+"NSSpeechRecognitionUsageDescription" = "音声入力するために必要です";
+"NSMicrophoneUsageDescription" = "音声入力するために必要です";

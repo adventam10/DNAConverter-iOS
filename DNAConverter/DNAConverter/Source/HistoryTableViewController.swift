@@ -2,8 +2,8 @@
 //  HistoryTableViewController.swift
 //  DNAConverter
 //
-//  Created by makoto on 2020/01/10.
-//  Copyright © 2020 makoto. All rights reserved.
+//  Created by am10 on 2020/01/10.
+//  Copyright © 2020 am10. All rights reserved.
 //
 
 import UIKit

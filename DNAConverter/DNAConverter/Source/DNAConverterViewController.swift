@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import Speech
 
 final class DNAConverterViewController: UIViewController {
 
+    @IBOutlet private weak var recordButton: RecordButton!
+    
+    @IBOutlet weak var originalTextToolView: UIView!
     @IBOutlet private weak var modeSegmentedControl: UISegmentedControl!
     @IBOutlet private weak var convertedTextView: UITextView! {
         didSet {
@@ -33,6 +37,7 @@ final class DNAConverterViewController: UIViewController {
 
     private let model = DNAConverterModel()
     private let historyModel = HistoryModel()
+    private let speechModel = SpeechModel()
     enum Mode: Int {
         case language
         case dna
@@ -50,6 +55,24 @@ final class DNAConverterViewController: UIViewController {
         originalTextView.text = ""
         convertedTextView.text = ""
         originalTextView.changeVisiblePlaceHolder()
+        #if targetEnvironment(macCatalyst)
+        originalTextToolView.isHidden = true
+        #else
+        originalTextToolView.isHidden = false
+        speechModel.speechRecognizer?.delegate = self
+        SFSpeechRecognizer.requestAuthorization { authStatus in
+            OperationQueue.main.addOperation {
+                switch authStatus {
+                    case .authorized:
+                        self.recordButton.recordState = .enable(isRecording: false)
+                    case .denied, .restricted, .notDetermined:
+                        self.recordButton.recordState = .disable
+                @unknown default:
+                    fatalError("error")
+                }
+            }
+        }
+        #endif
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -64,6 +87,28 @@ final class DNAConverterViewController: UIViewController {
     }
 
     //MARK:- IBActions
+    @IBAction private func record(_ sender: Any) {
+        if speechModel.isRunning {
+            speechModel.stop()
+            recordButton.recordState = .enable(isRecording: false)
+            return
+        }
+        do {
+            try speechModel.start { [weak self] (text, finished) in
+                if let text = text {
+                    self?.originalTextView.text = text
+                    self?.originalTextView.changeVisiblePlaceHolder()
+                }
+                if finished {
+                    self?.recordButton.recordState = .enable(isRecording: false)
+                }
+            }
+            recordButton.recordState = .enable(isRecording: true)
+        } catch {
+            recordButton.recordState = .enable(isRecording: false)
+        }
+    }
+
     @IBAction private func clear(_ sender: Any) {
         originalTextView.text = ""
         convertedTextView.text = ""
@@ -168,5 +213,15 @@ extension DNAConverterViewController: HistoryTableViewControllerDelegate {
         originalTextView.changeVisiblePlaceHolder()
         historyModel.add(history: history)
         convert(history)
+    }
+}
+
+extension DNAConverterViewController: SFSpeechRecognizerDelegate {
+    func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
+        if available {
+            recordButton.recordState = .enable(isRecording: false)
+        } else {
+            recordButton.recordState = .disable
+        }
     }
 }

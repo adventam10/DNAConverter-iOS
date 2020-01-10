@@ -44,22 +44,49 @@
                                     <action selector="changedMode:" destination="BYZ-38-t0r" eventType="valueChanged" id="KCs-FI-YbC"/>
                                 </connections>
                             </segmentedControl>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="CcK-7V-g9V">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CcK-7V-g9V">
                                 <rect key="frame" x="16" y="144" width="382" height="650"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MUd-Bp-mSN" customClass="PlaceHolderTextView" customModule="DNAConverter" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="382" height="325"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="テキストを入力してください"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </textView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ycq-ZW-M26">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="321"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="MUd-Bp-mSN" customClass="PlaceHolderTextView" customModule="DNAConverter" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="277"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeHolder" value="テキストを入力してください"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </textView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R4z-1z-C4k">
+                                                <rect key="frame" x="0.0" y="277" width="382" height="44"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H8k-bu-nSz" customClass="RecordButton" customModule="DNAConverter" customModuleProvider="target">
+                                                        <rect key="frame" x="338" y="0.0" width="44" height="44"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="H8k-bu-nSz" secondAttribute="height" multiplier="1:1" id="WNf-sN-5Ki"/>
+                                                        </constraints>
+                                                        <state key="normal" image="mic" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="record:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bV1-jW-rgS"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="44" id="5ow-nQ-gby"/>
+                                                    <constraint firstAttribute="trailing" secondItem="H8k-bu-nSz" secondAttribute="trailing" id="G3a-YZ-YEa"/>
+                                                    <constraint firstItem="H8k-bu-nSz" firstAttribute="top" secondItem="R4z-1z-C4k" secondAttribute="top" id="Wdq-Fr-Liq"/>
+                                                    <constraint firstAttribute="bottom" secondItem="H8k-bu-nSz" secondAttribute="bottom" id="aOJ-PA-XaS"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vmg-FA-pp0">
-                                        <rect key="frame" x="0.0" y="325" width="382" height="325"/>
+                                        <rect key="frame" x="0.0" y="329" width="382" height="321"/>
                                         <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -143,7 +170,9 @@
                     <connections>
                         <outlet property="convertedTextView" destination="Vmg-FA-pp0" id="ZYQ-LX-COD"/>
                         <outlet property="modeSegmentedControl" destination="hNr-8C-VBC" id="N2w-Vf-eiC"/>
+                        <outlet property="originalTextToolView" destination="R4z-1z-C4k" id="bfc-hZ-vhW"/>
                         <outlet property="originalTextView" destination="MUd-Bp-mSN" id="GER-2j-4Zp"/>
+                        <outlet property="recordButton" destination="H8k-bu-nSz" id="5Hk-Th-VHs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -214,6 +243,7 @@
         <image name="doc.on.clipboard" catalog="system" width="58" height="64"/>
         <image name="folder.badge.plus" catalog="system" width="64" height="42"/>
         <image name="icon_history" width="28" height="28"/>
+        <image name="mic" catalog="system" width="54" height="64"/>
         <image name="twitter" width="300" height="300"/>
     </resources>
 </document>
