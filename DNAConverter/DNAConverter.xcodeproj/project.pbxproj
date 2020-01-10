@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E635DF623C8834400D6CAD4 /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E635DF523C8834400D6CAD4 /* HistoryModel.swift */; };
+		0E635DF823C8860600D6CAD4 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E635DF723C8860600D6CAD4 /* HistoryTableViewController.swift */; };
 		0EC11D6023C04A4D002C2935 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0EC11D6223C04A4D002C2935 /* InfoPlist.strings */; };
 		0EC11D6623C04AE0002C2935 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0EC11D6823C04AE0002C2935 /* Localizable.strings */; };
 		0EC11D6B23C0530C002C2935 /* StringExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC11D6A23C0530C002C2935 /* StringExtensionsTests.swift */; };
@@ -34,7 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0EC11D5A23C049A6002C2935 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		0E635DF523C8834400D6CAD4 /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
+		0E635DF723C8860600D6CAD4 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
+		0E635DFA23C88F9100D6CAD4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		0EC11D5B23C049A6002C2935 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		0EC11D5D23C049C7002C2935 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		0EC11D6123C04A4D002C2935 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -124,6 +128,8 @@
 			children = (
 				0EF348E523BF3773009AB96B /* AppDelegate.swift */,
 				0EF348E723BF3773009AB96B /* SceneDelegate.swift */,
+				0E635DF523C8834400D6CAD4 /* HistoryModel.swift */,
+				0E635DF723C8860600D6CAD4 /* HistoryTableViewController.swift */,
 				0EF3490723BF37AC009AB96B /* DNAConverterViewController.swift */,
 				0EF3490923BF37FC009AB96B /* DNAConverterModel.swift */,
 				0EF348EB23BF3773009AB96B /* Main.storyboard */,
@@ -255,10 +261,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E635DF623C8834400D6CAD4 /* HistoryModel.swift in Sources */,
 				0EF348E623BF3773009AB96B /* AppDelegate.swift in Sources */,
 				0EF3490823BF37AC009AB96B /* DNAConverterViewController.swift in Sources */,
 				0EF3490C23BF3F9B009AB96B /* StringExtensions.swift in Sources */,
 				0EF3490A23BF37FC009AB96B /* DNAConverterModel.swift in Sources */,
+				0E635DF823C8860600D6CAD4 /* HistoryTableViewController.swift in Sources */,
 				0EF3491023BF807A009AB96B /* PlaceHolderTextView.swift in Sources */,
 				0EF3490E23BF734F009AB96B /* UIViewControllerExtensions.swift in Sources */,
 				0EF348E823BF3773009AB96B /* SceneDelegate.swift in Sources */,
@@ -307,8 +315,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				0EF348EC23BF3773009AB96B /* Base */,
-				0EC11D5A23C049A6002C2935 /* ja */,
 				0EC11D5D23C049C7002C2935 /* en */,
+				0E635DFA23C88F9100D6CAD4 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

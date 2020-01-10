@@ -127,11 +127,18 @@
                                 <action selector="clear:" destination="BYZ-38-t0r" id="uNL-YI-hTb"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="BaL-Ng-cN9">
-                            <connections>
-                                <action selector="share:" destination="BYZ-38-t0r" id="hU6-EO-rUf"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="action" id="BaL-Ng-cN9">
+                                <connections>
+                                    <action selector="share:" destination="BYZ-38-t0r" id="hU6-EO-rUf"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="icon_history" id="YDO-Jb-WGH">
+                                <connections>
+                                    <segue destination="CqE-5h-lS2" kind="presentation" id="Dlf-0P-YKB"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="convertedTextView" destination="Vmg-FA-pp0" id="ZYQ-LX-COD"/>
@@ -143,10 +150,70 @@
             </objects>
             <point key="canvasLocation" x="139" y="134"/>
         </scene>
+        <!--History Table View Controller-->
+        <scene sceneID="0ZJ-XF-4O5">
+            <objects>
+                <viewController id="CqE-5h-lS2" customClass="HistoryTableViewController" customModule="DNAConverter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sea-xA-18K">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zSX-wx-vf6">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <items>
+                                    <navigationItem title="履歴" id="h8N-w2-AO3"/>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vYv-On-BTt">
+                                <rect key="frame" x="0.0" y="56" width="414" height="752"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="0s7-17-3nn">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0s7-17-3nn" id="ZKM-GX-RcF">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="履歴がありません" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="moW-ph-SFy">
+                                <rect key="frame" x="16" y="72" width="382" height="20.333333333333329"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="vYv-On-BTt" firstAttribute="top" secondItem="zSX-wx-vf6" secondAttribute="bottom" symbolic="YES" id="7pk-6q-QrF"/>
+                            <constraint firstItem="zSX-wx-vf6" firstAttribute="leading" secondItem="9a9-pA-OZS" secondAttribute="leading" id="7ve-5K-iq2"/>
+                            <constraint firstItem="zSX-wx-vf6" firstAttribute="top" secondItem="9a9-pA-OZS" secondAttribute="top" id="9T1-Um-EPA"/>
+                            <constraint firstItem="9a9-pA-OZS" firstAttribute="trailing" secondItem="moW-ph-SFy" secondAttribute="trailing" constant="16" id="At9-Hf-MXB"/>
+                            <constraint firstItem="9a9-pA-OZS" firstAttribute="bottom" secondItem="vYv-On-BTt" secondAttribute="bottom" id="DcH-Qm-moT"/>
+                            <constraint firstItem="moW-ph-SFy" firstAttribute="top" secondItem="zSX-wx-vf6" secondAttribute="bottom" constant="16" id="IvD-CY-Pjq"/>
+                            <constraint firstItem="moW-ph-SFy" firstAttribute="leading" secondItem="9a9-pA-OZS" secondAttribute="leading" constant="16" id="ZeX-dl-TD6"/>
+                            <constraint firstItem="vYv-On-BTt" firstAttribute="leading" secondItem="9a9-pA-OZS" secondAttribute="leading" id="aAn-Tz-Jqj"/>
+                            <constraint firstItem="9a9-pA-OZS" firstAttribute="trailing" secondItem="vYv-On-BTt" secondAttribute="trailing" id="jeQ-Sg-aaT"/>
+                            <constraint firstItem="zSX-wx-vf6" firstAttribute="trailing" secondItem="9a9-pA-OZS" secondAttribute="trailing" id="oSu-V7-XGz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9a9-pA-OZS"/>
+                    </view>
+                    <connections>
+                        <outlet property="noHistoryLabel" destination="moW-ph-SFy" id="TZE-ks-1f5"/>
+                        <outlet property="tableView" destination="vYv-On-BTt" id="01p-KR-2vI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cdB-S4-nQi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1129" y="167"/>
+        </scene>
     </scenes>
     <resources>
         <image name="doc.on.clipboard" catalog="system" width="58" height="64"/>
         <image name="folder.badge.plus" catalog="system" width="64" height="42"/>
+        <image name="icon_history" width="28" height="28"/>
         <image name="twitter" width="300" height="300"/>
     </resources>
 </document>

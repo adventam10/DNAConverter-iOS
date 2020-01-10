@@ -32,6 +32,7 @@ final class DNAConverterViewController: UIViewController {
     }
 
     private let model = DNAConverterModel()
+    private let historyModel = HistoryModel()
     enum Mode: Int {
         case language
         case dna
@@ -51,6 +52,12 @@ final class DNAConverterViewController: UIViewController {
         originalTextView.changeVisiblePlaceHolder()
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let historyViewController = segue.destination as? HistoryTableViewController {
+            historyViewController.delegate = self
+        }
+    }
+    
     private func setTexts() {
         model.originalText = originalTextView.text
         model.convertedText = convertedTextView.text
@@ -67,11 +74,19 @@ final class DNAConverterViewController: UIViewController {
     @IBAction private func share(_ sender: Any) {
         view.endEditing(true)
         setTexts()
+        #if targetEnvironment(macCatalyst)
+        guard let convertedText = model.convertedText,
+            !model.isInvalidDNA(convertedText) else {
+                showAlert(message: alertMessage)
+                return
+        }
+        #else
         guard let convertedText = model.convertedText,
             !convertedText.isEmpty else {
                 showAlert(message: alertMessageEmpty)
                 return
         }
+        #endif
         let controller = UIActivityViewController(activityItems: [convertedText],
                                                   applicationActivities: nil)
         controller.popoverPresentationController?.barButtonItem = sender as? UIBarButtonItem
@@ -113,6 +128,9 @@ final class DNAConverterViewController: UIViewController {
         switch result {
         case .success(let convertedText):
             convertedTextView.text = convertedText
+            if mode == .language {
+                historyModel.add(history: convertedText)
+            }
         case .failure(let error):
             convertedTextView.text = error.text
         }
@@ -140,3 +158,15 @@ extension DNAConverterViewController: UIDocumentPickerDelegate {
     }
 }
 #endif
+
+extension DNAConverterViewController: HistoryTableViewControllerDelegate {
+    func historyTableViewController(_ historyTableViewController: HistoryTableViewController, didSelectHistory history: String) {
+        historyTableViewController.dismiss(animated: true)
+        modeSegmentedControl.selectedSegmentIndex = Mode.dna.rawValue
+        originalTextView.text = history
+        convertedTextView.text = ""
+        originalTextView.changeVisiblePlaceHolder()
+        historyModel.add(history: history)
+        convert(history)
+    }
+}
