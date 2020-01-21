@@ -104,7 +104,7 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="2b5-uK-1hz"/>
-                                    <barButtonItem image="folder.badge.plus" catalog="system" id="ijk-Pa-3SW">
+                                    <barButtonItem image="arrow.down.doc" catalog="system" id="ijk-Pa-3SW">
                                         <connections>
                                             <action selector="exportText:" destination="BYZ-38-t0r" id="vLn-Uh-wfL"/>
                                         </connections>
@@ -247,8 +247,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.down.doc" catalog="system" width="56" height="64"/>
         <image name="doc.on.clipboard" catalog="system" width="58" height="64"/>
-        <image name="folder.badge.plus" catalog="system" width="64" height="42"/>
         <image name="icon_history" width="28" height="28"/>
         <image name="mic" catalog="system" width="54" height="64"/>
         <image name="twitter" width="300" height="300"/>
