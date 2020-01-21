@@ -11,6 +11,7 @@
 		0E635DF823C8860600D6CAD4 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E635DF723C8860600D6CAD4 /* HistoryTableViewController.swift */; };
 		0E635DFC23C91A5200D6CAD4 /* SpeechModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E635DFB23C91A5200D6CAD4 /* SpeechModel.swift */; };
 		0E635DFE23C925F600D6CAD4 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E635DFD23C925F600D6CAD4 /* RecordButton.swift */; };
+		0E9CF8DD23D730D80024575D /* AppStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9CF8DC23D730D80024575D /* AppStoreModel.swift */; };
 		0EC11D6023C04A4D002C2935 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0EC11D6223C04A4D002C2935 /* InfoPlist.strings */; };
 		0EC11D6623C04AE0002C2935 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0EC11D6823C04AE0002C2935 /* Localizable.strings */; };
 		0EC11D6B23C0530C002C2935 /* StringExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC11D6A23C0530C002C2935 /* StringExtensionsTests.swift */; };
@@ -43,6 +44,7 @@
 		0E635DFB23C91A5200D6CAD4 /* SpeechModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechModel.swift; sourceTree = "<group>"; };
 		0E635DFD23C925F600D6CAD4 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
 		0E9CF8DB23D714610024575D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		0E9CF8DC23D730D80024575D /* AppStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreModel.swift; sourceTree = "<group>"; };
 		0EC11D5B23C049A6002C2935 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		0EC11D5D23C049C7002C2935 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		0EC11D6123C04A4D002C2935 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 			children = (
 				0EF348E523BF3773009AB96B /* AppDelegate.swift */,
 				0EF348E723BF3773009AB96B /* SceneDelegate.swift */,
+				0E9CF8DC23D730D80024575D /* AppStoreModel.swift */,
 				0E635DFB23C91A5200D6CAD4 /* SpeechModel.swift */,
 				0E635DF523C8834400D6CAD4 /* HistoryModel.swift */,
 				0E635DF723C8860600D6CAD4 /* HistoryTableViewController.swift */,
@@ -276,6 +279,7 @@
 				0E635DFE23C925F600D6CAD4 /* RecordButton.swift in Sources */,
 				0EF3491023BF807A009AB96B /* PlaceHolderTextView.swift in Sources */,
 				0E635DFC23C91A5200D6CAD4 /* SpeechModel.swift in Sources */,
+				0E9CF8DD23D730D80024575D /* AppStoreModel.swift in Sources */,
 				0EF3490E23BF734F009AB96B /* UIViewControllerExtensions.swift in Sources */,
 				0EF348E823BF3773009AB96B /* SceneDelegate.swift in Sources */,
 			);
