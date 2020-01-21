@@ -190,7 +190,13 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zSX-wx-vf6">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <items>
-                                    <navigationItem title="履歴" id="h8N-w2-AO3"/>
+                                    <navigationItem title="履歴" id="h8N-w2-AO3">
+                                        <barButtonItem key="rightBarButtonItem" title="閉じる" id="0gj-jA-S9K">
+                                            <connections>
+                                                <action selector="close:" destination="CqE-5h-lS2" id="pON-9k-MvR"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vYv-On-BTt">
@@ -230,6 +236,7 @@
                         <viewLayoutGuide key="safeArea" id="9a9-pA-OZS"/>
                     </view>
                     <connections>
+                        <outlet property="historyNavigationItem" destination="h8N-w2-AO3" id="8eT-SM-N4I"/>
                         <outlet property="noHistoryLabel" destination="moW-ph-SFy" id="TZE-ks-1f5"/>
                         <outlet property="tableView" destination="vYv-On-BTt" id="01p-KR-2vI"/>
                     </connections>

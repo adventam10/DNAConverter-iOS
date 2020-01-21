@@ -40,9 +40,9 @@
 /* Begin PBXFileReference section */
 		0E635DF523C8834400D6CAD4 /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
 		0E635DF723C8860600D6CAD4 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
-		0E635DFA23C88F9100D6CAD4 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		0E635DFB23C91A5200D6CAD4 /* SpeechModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechModel.swift; sourceTree = "<group>"; };
 		0E635DFD23C925F600D6CAD4 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
+		0E9CF8DB23D714610024575D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		0EC11D5B23C049A6002C2935 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		0EC11D5D23C049C7002C2935 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		0EC11D6123C04A4D002C2935 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -324,7 +324,7 @@
 			children = (
 				0EF348EC23BF3773009AB96B /* Base */,
 				0EC11D5D23C049C7002C2935 /* en */,
-				0E635DFA23C88F9100D6CAD4 /* ja */,
+				0E9CF8DB23D714610024575D /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

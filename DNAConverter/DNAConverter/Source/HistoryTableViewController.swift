@@ -15,6 +15,7 @@ protocol HistoryTableViewControllerDelegate: AnyObject {
 final class HistoryTableViewController: UIViewController {
 
     weak var delegate: HistoryTableViewControllerDelegate?
+    @IBOutlet private weak var historyNavigationItem: UINavigationItem!
     @IBOutlet private weak var noHistoryLabel: UILabel!
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
@@ -29,6 +30,14 @@ final class HistoryTableViewController: UIViewController {
         let isHiddenTable = historyModel.histories.isEmpty
         noHistoryLabel.isHidden = !isHiddenTable
         tableView.isHidden = isHiddenTable
+        #if targetEnvironment(macCatalyst)
+        #else
+        historyNavigationItem.rightBarButtonItem = nil
+        #endif
+    }
+    
+    @IBAction private func close(_ sender: Any) {
+        dismiss(animated: true)
     }
 }
 
