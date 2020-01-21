@@ -88,11 +88,12 @@ final class DNAConverterViewController: UIViewController {
 
     //MARK:- IBActions
     @IBAction private func record(_ sender: Any) {
-        if speechModel.isRunning {
+        if speechModel.isRecording {
             speechModel.stop()
             recordButton.recordState = .enable(isRecording: false)
             return
         }
+
         do {
             try speechModel.start { [weak self] (text, finished) in
                 if let text = text {
@@ -101,6 +102,10 @@ final class DNAConverterViewController: UIViewController {
                 }
                 if finished {
                     self?.recordButton.recordState = .enable(isRecording: false)
+                } else {
+                    if self?.speechModel.isRecording == false {
+                        self?.recordButton.recordState = .enable(isRecording: false)
+                    }
                 }
             }
             recordButton.recordState = .enable(isRecording: true)
