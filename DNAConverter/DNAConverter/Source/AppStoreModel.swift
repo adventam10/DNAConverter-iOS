@@ -36,7 +36,7 @@ struct AppStoreModel {
             }
             do {
                 let appVersion = try JSONDecoder().decode(AppVersion.self, from: data)
-                if appVersion.version != nil && appVersion.version != self.version {
+                if appVersion.version != nil && appVersion.version != self.version && appVersion.version != "1.0" {
                     completion(.success(.shouldUpdate))
                 } else {
                     completion(.success(.noUpdate))
