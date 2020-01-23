@@ -13,3 +13,5 @@
 "original_place_holder" = "テキストを入力してください";
 "hash_tag" = "DNA変換";
 "update_message" = "アップデートがあります";
+"copy_message" = "結果をコピーしました";
+"download_message" = "結果をダウンロードしました";

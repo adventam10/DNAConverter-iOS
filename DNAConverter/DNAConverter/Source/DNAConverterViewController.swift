@@ -11,9 +11,9 @@ import Speech
 
 final class DNAConverterViewController: UIViewController {
 
+    @IBOutlet private weak var toastView: ToastView!
     @IBOutlet private weak var recordButton: RecordButton!
-    
-    @IBOutlet weak var originalTextToolView: UIView!
+    @IBOutlet private weak var originalTextToolView: UIView!
     @IBOutlet private weak var modeSegmentedControl: UISegmentedControl!
     @IBOutlet private weak var convertedTextView: UITextView! {
         didSet {
@@ -155,7 +155,9 @@ final class DNAConverterViewController: UIViewController {
         picker.delegate = self
         present(picker, animated: true)
         #else
-        if !model.export(model.convertedText) {
+        if model.export(model.convertedText) {
+            toastView.showMessage(NSLocalizedString("download_message", comment: ""))
+        } else {
             showAlert(message: alertMessage)
         }
         #endif
@@ -168,6 +170,7 @@ final class DNAConverterViewController: UIViewController {
         view.endEditing(true)
         setTexts()
         UIPasteboard.general.string = model.convertedText
+        toastView.showMessage(NSLocalizedString("copy_message", comment: ""))
     }
 
     @objc
@@ -202,7 +205,9 @@ final class DNAConverterViewController: UIViewController {
 extension DNAConverterViewController: UIDocumentPickerDelegate {
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         let url = urls.first!
-        if !model.export(model.convertedText, directoryPath: url.path) {
+        if model.export(model.convertedText, directoryPath: url.path) {
+            toastView.showMessage(NSLocalizedString("download_message", comment: ""))
+        } else {
             showAlert(message: alertMessage)
         }
     }

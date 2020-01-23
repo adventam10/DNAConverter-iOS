@@ -3,6 +3,7 @@
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -117,6 +118,27 @@
                                     <barButtonItem width="56" style="plain" systemItem="fixedSpace" id="SRy-yx-vFg"/>
                                 </items>
                             </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AzF-0S-JiS" customClass="ToastView" customModule="DNAConverter" customModuleProvider="target">
+                                <rect key="frame" x="170.33333333333334" y="789.66666666666663" width="73.666666666666657" height="36.333333333333371"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTt-eu-EiR">
+                                        <rect key="frame" x="15.999999999999996" y="7.9999999999999982" width="41.666666666666657" height="20.333333333333329"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" name="toast_message"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="toast_background"/>
+                                <constraints>
+                                    <constraint firstItem="tTt-eu-EiR" firstAttribute="leading" secondItem="AzF-0S-JiS" secondAttribute="leading" constant="16" id="NvV-6V-xAD"/>
+                                    <constraint firstAttribute="trailing" secondItem="tTt-eu-EiR" secondAttribute="trailing" constant="16" id="aRE-Nb-FaR"/>
+                                    <constraint firstAttribute="bottom" secondItem="tTt-eu-EiR" secondAttribute="bottom" constant="8" id="cKh-71-qbM"/>
+                                    <constraint firstItem="tTt-eu-EiR" firstAttribute="top" secondItem="AzF-0S-JiS" secondAttribute="top" constant="8" id="idm-Wl-yDd"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="messageLabel" destination="tTt-eu-EiR" id="0mv-al-PEd"/>
+                                </connections>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WRr-EQ-bmQ">
                                 <rect key="frame" x="358" y="818" width="40" height="40"/>
                                 <constraints>
@@ -131,16 +153,20 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="AzF-0S-JiS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="7GY-Xl-dpa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="WRr-EQ-bmQ" secondAttribute="bottom" constant="4" id="8Mq-0j-cGN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WRr-EQ-bmQ" secondAttribute="trailing" constant="16" id="CZZ-0n-Wm4"/>
+                            <constraint firstItem="AzF-0S-JiS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FfP-qp-wzS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WRr-EQ-bmQ" secondAttribute="bottom" priority="750" constant="4" id="HJY-wb-K6s"/>
                             <constraint firstItem="W2O-2O-AA9" firstAttribute="top" secondItem="CcK-7V-g9V" secondAttribute="bottom" constant="16" id="Qia-rL-bha"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hNr-8C-VBC" secondAttribute="trailing" constant="16" id="Rq5-iY-tJf"/>
                             <constraint firstItem="CcK-7V-g9V" firstAttribute="top" secondItem="hNr-8C-VBC" secondAttribute="bottom" constant="8" id="X9s-8q-g97"/>
                             <constraint firstItem="hNr-8C-VBC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="YGy-7U-mZX"/>
+                            <constraint firstItem="W2O-2O-AA9" firstAttribute="top" secondItem="AzF-0S-JiS" secondAttribute="bottom" constant="-16" id="cIv-xJ-XS8"/>
                             <constraint firstItem="WRr-EQ-bmQ" firstAttribute="top" secondItem="W2O-2O-AA9" secondAttribute="top" constant="8" id="cc5-IS-Vgq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CcK-7V-g9V" secondAttribute="trailing" constant="16" id="eVJ-Qh-egK"/>
                             <constraint firstItem="W2O-2O-AA9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="ec0-Ba-zKs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="AzF-0S-JiS" secondAttribute="trailing" constant="16" id="gEc-yZ-RVW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="W2O-2O-AA9" secondAttribute="trailing" id="h45-Ge-eNX"/>
                             <constraint firstItem="hNr-8C-VBC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="j2T-Lh-nRd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="W2O-2O-AA9" secondAttribute="bottom" id="jby-yr-vf2"/>
@@ -173,6 +199,7 @@
                         <outlet property="originalTextToolView" destination="R4z-1z-C4k" id="bfc-hZ-vhW"/>
                         <outlet property="originalTextView" destination="MUd-Bp-mSN" id="GER-2j-4Zp"/>
                         <outlet property="recordButton" destination="H8k-bu-nSz" id="5Hk-Th-VHs"/>
+                        <outlet property="toastView" destination="AzF-0S-JiS" id="1qc-dP-HSl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -252,5 +279,11 @@
         <image name="icon_history" width="28" height="28"/>
         <image name="mic" catalog="system" width="54" height="64"/>
         <image name="twitter" width="300" height="300"/>
+        <namedColor name="toast_background">
+            <color red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="toast_message">
+            <color red="0.96470588235294119" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
