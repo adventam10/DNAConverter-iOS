@@ -90,6 +90,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E68B81D23D9EC3600441D9F /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				0E635DF723C8860600D6CAD4 /* HistoryTableViewController.swift */,
+				0EF3490723BF37AC009AB96B /* DNAConverterViewController.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		0E68B81E23D9EC5100441D9F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0E9CF8DC23D730D80024575D /* AppStoreModel.swift */,
+				0E635DFB23C91A5200D6CAD4 /* SpeechModel.swift */,
+				0E635DF523C8834400D6CAD4 /* HistoryModel.swift */,
+				0EF3490923BF37FC009AB96B /* DNAConverterModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		0EF348D923BF3773009AB96B = {
 			isa = PBXGroup;
 			children = (
@@ -136,14 +156,10 @@
 			children = (
 				0EF348E523BF3773009AB96B /* AppDelegate.swift */,
 				0EF348E723BF3773009AB96B /* SceneDelegate.swift */,
-				0E9CF8DC23D730D80024575D /* AppStoreModel.swift */,
-				0E635DFB23C91A5200D6CAD4 /* SpeechModel.swift */,
-				0E635DF523C8834400D6CAD4 /* HistoryModel.swift */,
-				0E635DF723C8860600D6CAD4 /* HistoryTableViewController.swift */,
-				0EF3490723BF37AC009AB96B /* DNAConverterViewController.swift */,
-				0EF3490923BF37FC009AB96B /* DNAConverterModel.swift */,
 				0EF348EB23BF3773009AB96B /* Main.storyboard */,
 				0EF348F023BF3774009AB96B /* LaunchScreen.storyboard */,
+				0E68B81D23D9EC3600441D9F /* Screens */,
+				0E68B81E23D9EC5100441D9F /* Models */,
 				0EF3491323BF9197009AB96B /* Extensions */,
 				0EF3491223BF917B009AB96B /* CustomViews */,
 			);
