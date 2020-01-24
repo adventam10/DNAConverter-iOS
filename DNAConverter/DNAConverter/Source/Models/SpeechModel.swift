@@ -26,6 +26,17 @@ class SpeechModel {
         if supportedLocales.contains(currentLocale) {
             return currentLocale
         }
+        if supportedLocales.contains(currentLocale) {
+            return currentLocale
+        }
+        func removeSeparator(_ localeId: String) -> String {
+            let result = localeId.replacingOccurrences(of: "_", with: "")
+            return result.replacingOccurrences(of: "-", with: "")
+        }
+        let removedSeparatorCurrentLocaleIdentifier = removeSeparator(currentLocale.identifier)
+        if let locale = supportedLocales.first(where: { removeSeparator($0.identifier) == removedSeparatorCurrentLocaleIdentifier } ) {
+            return locale
+        }
         let currentLocaleIdentifierPrefix = currentLocale.identifier.components(separatedBy: "_").first!
         let locale = supportedLocales.first { $0.identifier.hasPrefix(currentLocaleIdentifierPrefix) }
         return locale ?? Locale(identifier: "en-US")
