@@ -9,7 +9,7 @@
 import Foundation
 
 struct AppStoreModel {
-    private let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+    private let version = Version(version: Bundle.main.version!)
     private var appId: String {
         #if targetEnvironment(macCatalyst)
         return "1494127578"
@@ -36,7 +36,8 @@ struct AppStoreModel {
             }
             do {
                 let appVersion = try JSONDecoder().decode(AppVersion.self, from: data)
-                if appVersion.version != nil && appVersion.version != self.version && appVersion.version != "1.0" {
+                if let version = appVersion.version,
+                    Version(version: version) > self.version {
                     completion(.success(.shouldUpdate))
                 } else {
                     completion(.success(.noUpdate))
@@ -68,6 +69,42 @@ struct AppVersion: Decodable {
         let results = try container.decodeIfPresent([Result].self, forKey: .results)
         name = results?.first?.trackName
         version = results?.first?.version
+    }
+}
+
+struct Version {
+    let major: Int
+    let minor: Int
+    let revision: Int
+}
+
+extension Version {
+    init(version: String) {
+        let versions = version.components(separatedBy: ".")
+        self.major = versions[safe: 0].flatMap { Int($0) } ?? 0
+        self.minor = versions[safe: 1].flatMap { Int($0) } ?? 0
+        self.revision = versions[safe: 2].flatMap { Int($0) } ?? 0
+    }
+
+    static func > (lhs: Version, rhs: Version) -> Bool {
+        if lhs.major > rhs.major {
+            return true
+        }
+        if lhs.major < rhs.major {
+            return false
+        }
+        // lhs.major == rhs.major
+        if lhs.minor > rhs.minor {
+            return true
+        }
+        if lhs.minor < rhs.minor {
+            return false
+        }
+        // lhs.major == rhs.major && lhs.minor == rhs.minor
+        if lhs.revision > rhs.revision {
+            return true
+        }
+        return false
     }
 }
 
