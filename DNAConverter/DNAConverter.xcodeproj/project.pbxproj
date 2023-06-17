@@ -11,6 +11,7 @@
 		0E572F0D2A3D8A890073D721 /* DNAConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E572F0C2A3D8A890073D721 /* DNAConverter.swift */; };
 		0E572F0F2A3D8B2D0073D721 /* FileExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E572F0E2A3D8B2D0073D721 /* FileExporter.swift */; };
 		0E572F112A3D8BB20073D721 /* TwitterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E572F102A3D8BB20073D721 /* TwitterManager.swift */; };
+		0E572F132A3DAEE80073D721 /* DNAConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E572F122A3DAEE80073D721 /* DNAConverterTests.swift */; };
 		0E635DF623C8834400D6CAD4 /* HistoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E635DF523C8834400D6CAD4 /* HistoryRepository.swift */; };
 		0E635DF823C8860600D6CAD4 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E635DF723C8860600D6CAD4 /* HistoryTableViewController.swift */; };
 		0E635DFC23C91A5200D6CAD4 /* SpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E635DFB23C91A5200D6CAD4 /* SpeechManager.swift */; };
@@ -23,13 +24,11 @@
 		0EC11D6023C04A4D002C2935 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0EC11D6223C04A4D002C2935 /* InfoPlist.strings */; };
 		0EC11D6623C04AE0002C2935 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0EC11D6823C04AE0002C2935 /* Localizable.strings */; };
 		0EC11D6B23C0530C002C2935 /* StringExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC11D6A23C0530C002C2935 /* StringExtensionsTests.swift */; };
-		0EC11D6D23C05322002C2935 /* DNAConverterModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC11D6C23C05322002C2935 /* DNAConverterModelTests.swift */; };
 		0EF348E623BF3773009AB96B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF348E523BF3773009AB96B /* AppDelegate.swift */; };
 		0EF348ED23BF3773009AB96B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EF348EB23BF3773009AB96B /* Main.storyboard */; };
 		0EF348EF23BF3774009AB96B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EF348EE23BF3774009AB96B /* Assets.xcassets */; };
 		0EF348F223BF3774009AB96B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EF348F023BF3774009AB96B /* LaunchScreen.storyboard */; };
 		0EF3490823BF37AC009AB96B /* DNAConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF3490723BF37AC009AB96B /* DNAConverterViewController.swift */; };
-		0EF3490A23BF37FC009AB96B /* DNAConverterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF3490923BF37FC009AB96B /* DNAConverterModel.swift */; };
 		0EF3490C23BF3F9B009AB96B /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF3490B23BF3F9B009AB96B /* StringExtensions.swift */; };
 		0EF3490E23BF734F009AB96B /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF3490D23BF734F009AB96B /* UIViewControllerExtensions.swift */; };
 		0EF3491023BF807A009AB96B /* PlaceHolderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF3490F23BF807A009AB96B /* PlaceHolderTextView.swift */; };
@@ -52,6 +51,7 @@
 		0E572F0C2A3D8A890073D721 /* DNAConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNAConverter.swift; sourceTree = "<group>"; };
 		0E572F0E2A3D8B2D0073D721 /* FileExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileExporter.swift; sourceTree = "<group>"; };
 		0E572F102A3D8BB20073D721 /* TwitterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterManager.swift; sourceTree = "<group>"; };
+		0E572F122A3DAEE80073D721 /* DNAConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNAConverterTests.swift; sourceTree = "<group>"; };
 		0E635DF523C8834400D6CAD4 /* HistoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRepository.swift; sourceTree = "<group>"; };
 		0E635DF723C8860600D6CAD4 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		0E635DFB23C91A5200D6CAD4 /* SpeechManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechManager.swift; sourceTree = "<group>"; };
@@ -69,7 +69,6 @@
 		0EC11D6723C04AE0002C2935 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0EC11D6923C04AE2002C2935 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0EC11D6A23C0530C002C2935 /* StringExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensionsTests.swift; sourceTree = "<group>"; };
-		0EC11D6C23C05322002C2935 /* DNAConverterModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNAConverterModelTests.swift; sourceTree = "<group>"; };
 		0EC11D6E23C069BC002C2935 /* DNAConverter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DNAConverter.entitlements; sourceTree = "<group>"; };
 		0EF348E223BF3773009AB96B /* DNAConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DNAConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EF348E523BF3773009AB96B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,7 +79,6 @@
 		0EF348F823BF3774009AB96B /* DNAConverterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DNAConverterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EF348FE23BF3774009AB96B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EF3490723BF37AC009AB96B /* DNAConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNAConverterViewController.swift; sourceTree = "<group>"; };
-		0EF3490923BF37FC009AB96B /* DNAConverterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNAConverterModel.swift; sourceTree = "<group>"; };
 		0EF3490B23BF3F9B009AB96B /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		0EF3490D23BF734F009AB96B /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		0EF3490F23BF807A009AB96B /* PlaceHolderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHolderTextView.swift; sourceTree = "<group>"; };
@@ -123,7 +121,6 @@
 				0E9CF8DC23D730D80024575D /* AppStoreManager.swift */,
 				0E635DFB23C91A5200D6CAD4 /* SpeechManager.swift */,
 				0E635DF523C8834400D6CAD4 /* HistoryRepository.swift */,
-				0EF3490923BF37FC009AB96B /* DNAConverterModel.swift */,
 				0E572F0C2A3D8A890073D721 /* DNAConverter.swift */,
 				0E572F0E2A3D8B2D0073D721 /* FileExporter.swift */,
 				0E572F102A3D8BB20073D721 /* TwitterManager.swift */,
@@ -165,7 +162,7 @@
 		0EF348FB23BF3774009AB96B /* DNAConverterTests */ = {
 			isa = PBXGroup;
 			children = (
-				0EC11D6C23C05322002C2935 /* DNAConverterModelTests.swift */,
+				0E572F122A3DAEE80073D721 /* DNAConverterTests.swift */,
 				0EC11D6A23C0530C002C2935 /* StringExtensionsTests.swift */,
 				0E7A429023DB311D00C569FD /* VersionTest.swift */,
 				0EF348FE23BF3774009AB96B /* Info.plist */,
@@ -321,7 +318,6 @@
 				0EF348E623BF3773009AB96B /* AppDelegate.swift in Sources */,
 				0EF3490823BF37AC009AB96B /* DNAConverterViewController.swift in Sources */,
 				0EF3490C23BF3F9B009AB96B /* StringExtensions.swift in Sources */,
-				0EF3490A23BF37FC009AB96B /* DNAConverterModel.swift in Sources */,
 				0E572F0B2A3D69FD0073D721 /* HistoryView.swift in Sources */,
 				0EFD67A92A3B6E6500632F46 /* ContentView.swift in Sources */,
 				0E635DF823C8860600D6CAD4 /* HistoryTableViewController.swift in Sources */,
@@ -341,9 +337,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E572F132A3DAEE80073D721 /* DNAConverterTests.swift in Sources */,
 				0EC11D6B23C0530C002C2935 /* StringExtensionsTests.swift in Sources */,
 				0E7A429123DB311D00C569FD /* VersionTest.swift in Sources */,
-				0EC11D6D23C05322002C2935 /* DNAConverterModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,7 +574,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H5QW7TLM9U;
 				INFOPLIST_FILE = DNAConverterTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -600,7 +596,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H5QW7TLM9U;
 				INFOPLIST_FILE = DNAConverterTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

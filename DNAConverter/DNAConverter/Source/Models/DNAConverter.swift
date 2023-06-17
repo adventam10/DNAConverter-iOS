@@ -8,6 +8,14 @@
 
 import Foundation
 
+enum DNAConvertError: Error {
+    case empty
+    case invalid
+    var text: String {
+        return NSLocalizedString("error_message", comment: "")
+    }
+}
+
 struct DNAConverter {
 
     private let dnaHexValues: [String: String] =
@@ -65,7 +73,7 @@ struct DNAConverter {
         return !text!.isOnly(structuredBy: "ATCG")
     }
 
-    private func isEmptyText(_ text: String?) -> Bool {
+    func isEmptyText(_ text: String?) -> Bool {
         guard let text = text,
             text.isEmpty == false else {
             return true
