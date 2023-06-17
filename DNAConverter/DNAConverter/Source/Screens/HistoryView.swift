@@ -10,11 +10,10 @@ import SwiftUI
 
 struct HistoryView: View {
 
-    // FIXME: Mac版レイアウト
-
     private let repository = HistoryRepository()
     @Binding var isPresented: Bool
     @Binding var selected: String
+
     var body: some View {
         NavigationView {
             ZStack {
@@ -40,6 +39,7 @@ struct HistoryView: View {
                 }
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

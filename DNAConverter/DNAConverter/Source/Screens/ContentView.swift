@@ -24,8 +24,6 @@ enum RecordState {
 
 struct ContentView: View {
 
-    // FIXME: Mac版レイアウト
-
     private let dnaConverter = DNAConverter()
     private let speechManager = SpeechManager()
     private let fileExporter = FileExporter()
@@ -61,7 +59,8 @@ struct ContentView: View {
                     ).focused($focusedField, equals: .originalText)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
                 }.padding(16)
-
+                #if targetEnvironment(macCatalyst)
+                #else
                 HStack {
                     Spacer()
                     Button(action: {
@@ -89,6 +88,7 @@ struct ContentView: View {
                         }
                     }.disabled(recordState.isDisabled)
                 }.padding(.horizontal, 16)
+                #endif
 
                 ZStack {
                     Color.gray.cornerRadius(5)
@@ -168,10 +168,13 @@ struct ContentView: View {
                 }
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .sheet(isPresented: $isPresented) {
             HistoryView(isPresented: $isPresented, selected: $selectedHistory)
         }
         .onAppear {
+            #if targetEnvironment(macCatalyst)
+            #else
             speechManager.requestAuthorization { available in
                 if available {
                     recordState = .enable(isRecording: false)
@@ -179,6 +182,8 @@ struct ContentView: View {
                     recordState = .disable
                 }
             }
+            #endif
+
         }
         .onChange(of: selectedHistory) { newValue in
             clear()
@@ -237,12 +242,16 @@ extension ContentView {
     }
 
     private func exportText() {
+        #if targetEnvironment(macCatalyst)
+        // FIXME: UIDocumentPickerViewController使う
+        #else
         // FIXME: トースト表示
         if fileExporter.export(convertedText) {
 
         } else {
 
         }
+        #endif
     }
 
     private func showHistory() {
