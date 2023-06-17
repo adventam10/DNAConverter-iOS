@@ -36,8 +36,8 @@ final class DNAConverterViewController: UIViewController {
     }
 
     private let model = DNAConverterModel()
-    private let historyModel = HistoryModel()
-    private let speechModel = SpeechModel()
+    private let historyModel = HistoryRepository()
+    private let speechModel = SpeechManager()
     enum Mode: Int {
         case language
         case dna

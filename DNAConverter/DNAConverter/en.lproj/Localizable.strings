@@ -15,3 +15,12 @@
 "update_message" = "Update available";
 "copy_message" = "Result copied";
 "download_message" = "Result downloaded";
+
+"close" = "Close";
+"dna_converter_title" = "DNA Converter";
+"history_title" = "History";
+"no_history_message" = "No history";
+"segmented_title_lang" = "Language";
+"segmented_title_dna" = "Nucleotide";
+"conversion_mode" = "conversion mode";
+"clear_button_title" = "Clear";

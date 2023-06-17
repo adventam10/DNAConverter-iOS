@@ -23,7 +23,7 @@ final class HistoryTableViewController: UIViewController {
             tableView.dataSource = self
         }
     }
-    let historyModel = HistoryModel()
+    let historyModel = HistoryRepository()
 
     override func viewDidLoad() {
         super.viewDidLoad()

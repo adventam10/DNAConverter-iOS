@@ -1,5 +1,5 @@
 //
-//  SpeechModel.swift
+//  SpeechManager.swift
 //  DNAConverter
 //
 //  Created by am10 on 2020/01/11.
@@ -9,7 +9,7 @@
 import Foundation
 import Speech
 
-class SpeechModel {
+class SpeechManager {
     var speechRecognizer: SFSpeechRecognizer?
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
