@@ -126,7 +126,7 @@ struct ContentView: View {
                             Image("icon_history")
                                 .renderingMode(.template)
                                 .foregroundColor(.blue)
-                        }
+                        }.accessibilityLabel("history_title")
                     }
 
                     ToolbarItem(placement: .navigationBarTrailing){
@@ -156,7 +156,7 @@ struct ContentView: View {
                             #endif
                         }) {
                             Image(systemName: "arrow.down.doc")
-                        }
+                        }.accessibilityLabel("download")
                     }
                     ToolbarItem(placement: .bottomBar) {
                         Button(action: {
@@ -164,7 +164,7 @@ struct ContentView: View {
                             copyText()
                         }) {
                             Image(systemName: "doc.on.clipboard")
-                        }
+                        }.accessibilityLabel("copy")
                     }
                     ToolbarItem(placement: .bottomBar) {
                         Button(action: {
