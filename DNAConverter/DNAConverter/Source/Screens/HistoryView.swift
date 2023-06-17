@@ -14,16 +14,20 @@ struct HistoryView: View {
 
     private let repository = HistoryRepository()
     @Binding var isPresented: Bool
-
+    @Binding var selected: String
     var body: some View {
         NavigationView {
             ZStack {
                 if repository.histories.isEmpty {
                     Text("no_history_message")
                 } else {
-                    // FIXME: 選択処理
                     List(repository.histories, id: \.self) { history in
-                        Text(history)
+                        Button {
+                            isPresented.toggle()
+                            selected = history
+                        } label: {
+                            Text(history)
+                        }
                     }
                 }
             }
@@ -42,8 +46,9 @@ struct HistoryView: View {
 struct HistoryView_Previews: PreviewProvider {
 
     @State static var isPresented = true
+    @State static var selected = ""
 
     static var previews: some View {
-        HistoryView(isPresented: $isPresented)
+        HistoryView(isPresented: $isPresented, selected: $selected)
     }
 }

@@ -39,6 +39,7 @@ struct ContentView: View {
 
     @State private var originalText: String = ""
     @State private var convertedText: String = ""
+    @State private var selectedHistory: String = ""
     @State private var value = 0
     @State private var isPresented = false
     @State private var recordState = RecordState.disable
@@ -168,7 +169,7 @@ struct ContentView: View {
             }
         }
         .sheet(isPresented: $isPresented) {
-            HistoryView(isPresented: $isPresented)
+            HistoryView(isPresented: $isPresented, selected: $selectedHistory)
         }
         .onAppear {
             speechManager.requestAuthorization { available in
@@ -178,6 +179,12 @@ struct ContentView: View {
                     recordState = .disable
                 }
             }
+        }
+        .onChange(of: selectedHistory) { newValue in
+            clear()
+            originalText = newValue
+            value = 1
+            convertText()
         }
     }
 }
