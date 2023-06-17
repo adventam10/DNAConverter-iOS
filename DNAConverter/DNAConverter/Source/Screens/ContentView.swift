@@ -39,7 +39,9 @@ struct ContentView: View {
     @State private var convertedText: String = ""
     @State private var selectedHistory: String = ""
     @State private var value = 0
-    @State private var isPresented = false
+    @State private var isHistoryShown = false
+    @State private var isDocumentPickerShown = false
+    @State private var documentPickerURLs = [URL]()
     @State private var recordState = RecordState.disable
 
     var body: some View {
@@ -143,7 +145,11 @@ struct ContentView: View {
                 ToolbarItem(placement: .bottomBar) {
                     Button(action: {
                         closeKeyboard()
+                        #if targetEnvironment(macCatalyst)
+                        isDocumentPickerShown.toggle()
+                        #else
                         exportText()
+                        #endif
                     }) {
                         Image(systemName: "arrow.down.doc")
                     }
@@ -169,8 +175,11 @@ struct ContentView: View {
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .sheet(isPresented: $isPresented) {
-            HistoryView(isPresented: $isPresented, selected: $selectedHistory)
+        .sheet(isPresented: $isHistoryShown) {
+            HistoryView(isPresented: $isHistoryShown, selected: $selectedHistory)
+        }
+        .sheet(isPresented: $isDocumentPickerShown) {
+            DocumentPickerView(urls: $documentPickerURLs)
         }
         .onAppear {
             #if targetEnvironment(macCatalyst)
@@ -183,13 +192,16 @@ struct ContentView: View {
                 }
             }
             #endif
-
         }
         .onChange(of: selectedHistory) { newValue in
             clear()
             originalText = newValue
             value = 1
             convertText()
+        }
+        .onChange(of: documentPickerURLs) { newValue in
+            let url = newValue.first!
+            exportText(directoryPath: url.path)
         }
     }
 }
@@ -241,21 +253,24 @@ extension ContentView {
         convertedText = ""
     }
 
-    private func exportText() {
-        #if targetEnvironment(macCatalyst)
-        // FIXME: UIDocumentPickerViewController使う
-        #else
+    private func exportText(directoryPath: String? = nil) {
+        let isSuccess: Bool
+        if let path = directoryPath {
+            isSuccess = fileExporter.export(convertedText, directoryPath: path)
+        } else {
+            isSuccess = fileExporter.export(convertedText)
+        }
+
         // FIXME: トースト表示
-        if fileExporter.export(convertedText) {
+        if isSuccess {
 
         } else {
 
         }
-        #endif
     }
 
     private func showHistory() {
-        isPresented.toggle()
+        isHistoryShown.toggle()
     }
 
     private func record() {
