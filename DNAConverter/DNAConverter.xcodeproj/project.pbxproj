@@ -19,13 +19,12 @@
 		0E7A428D23DB2E9000C569FD /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7A428C23DB2E9000C569FD /* FoundationExtensions.swift */; };
 		0E7A428F23DB2ED300C569FD /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7A428E23DB2ED300C569FD /* ArrayExtensions.swift */; };
 		0E7A429123DB311D00C569FD /* VersionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7A429023DB311D00C569FD /* VersionTest.swift */; };
-		0E9CF8DD23D730D80024575D /* AppStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9CF8DC23D730D80024575D /* AppStoreModel.swift */; };
+		0E9CF8DD23D730D80024575D /* AppStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9CF8DC23D730D80024575D /* AppStoreManager.swift */; };
 		0EC11D6023C04A4D002C2935 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0EC11D6223C04A4D002C2935 /* InfoPlist.strings */; };
 		0EC11D6623C04AE0002C2935 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0EC11D6823C04AE0002C2935 /* Localizable.strings */; };
 		0EC11D6B23C0530C002C2935 /* StringExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC11D6A23C0530C002C2935 /* StringExtensionsTests.swift */; };
 		0EC11D6D23C05322002C2935 /* DNAConverterModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EC11D6C23C05322002C2935 /* DNAConverterModelTests.swift */; };
 		0EF348E623BF3773009AB96B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF348E523BF3773009AB96B /* AppDelegate.swift */; };
-		0EF348E823BF3773009AB96B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF348E723BF3773009AB96B /* SceneDelegate.swift */; };
 		0EF348ED23BF3773009AB96B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EF348EB23BF3773009AB96B /* Main.storyboard */; };
 		0EF348EF23BF3774009AB96B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EF348EE23BF3774009AB96B /* Assets.xcassets */; };
 		0EF348F223BF3774009AB96B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EF348F023BF3774009AB96B /* LaunchScreen.storyboard */; };
@@ -62,7 +61,7 @@
 		0E7A428E23DB2ED300C569FD /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		0E7A429023DB311D00C569FD /* VersionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionTest.swift; sourceTree = "<group>"; };
 		0E9CF8DB23D714610024575D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
-		0E9CF8DC23D730D80024575D /* AppStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreModel.swift; sourceTree = "<group>"; };
+		0E9CF8DC23D730D80024575D /* AppStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreManager.swift; sourceTree = "<group>"; };
 		0EC11D5B23C049A6002C2935 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		0EC11D5D23C049C7002C2935 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		0EC11D6123C04A4D002C2935 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -74,7 +73,6 @@
 		0EC11D6E23C069BC002C2935 /* DNAConverter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DNAConverter.entitlements; sourceTree = "<group>"; };
 		0EF348E223BF3773009AB96B /* DNAConverter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DNAConverter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EF348E523BF3773009AB96B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0EF348E723BF3773009AB96B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0EF348EC23BF3773009AB96B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0EF348EE23BF3774009AB96B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EF348F123BF3774009AB96B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -122,7 +120,7 @@
 		0E68B81E23D9EC5100441D9F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0E9CF8DC23D730D80024575D /* AppStoreModel.swift */,
+				0E9CF8DC23D730D80024575D /* AppStoreManager.swift */,
 				0E635DFB23C91A5200D6CAD4 /* SpeechManager.swift */,
 				0E635DF523C8834400D6CAD4 /* HistoryRepository.swift */,
 				0EF3490923BF37FC009AB96B /* DNAConverterModel.swift */,
@@ -179,7 +177,6 @@
 			isa = PBXGroup;
 			children = (
 				0EF348E523BF3773009AB96B /* AppDelegate.swift */,
-				0EF348E723BF3773009AB96B /* SceneDelegate.swift */,
 				0EF348EB23BF3773009AB96B /* Main.storyboard */,
 				0EF348F023BF3774009AB96B /* LaunchScreen.storyboard */,
 				0E68B81D23D9EC3600441D9F /* Screens */,
@@ -333,9 +330,8 @@
 				0EF3491023BF807A009AB96B /* PlaceHolderTextView.swift in Sources */,
 				0E635DFC23C91A5200D6CAD4 /* SpeechManager.swift in Sources */,
 				0EFD67A72A3B6E0C00632F46 /* DNAConverterApp.swift in Sources */,
-				0E9CF8DD23D730D80024575D /* AppStoreModel.swift in Sources */,
+				0E9CF8DD23D730D80024575D /* AppStoreManager.swift in Sources */,
 				0EF3490E23BF734F009AB96B /* UIViewControllerExtensions.swift in Sources */,
-				0EF348E823BF3773009AB96B /* SceneDelegate.swift in Sources */,
 				0E572F112A3D8BB20073D721 /* TwitterManager.swift in Sources */,
 				0E572F0D2A3D8A890073D721 /* DNAConverter.swift in Sources */,
 			);
