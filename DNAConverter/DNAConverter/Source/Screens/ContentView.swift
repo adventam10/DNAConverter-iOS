@@ -62,7 +62,9 @@ struct ContentView: View {
                             "original_place_holder",
                             text: $originalText,
                             axis: .vertical
-                        ).focused($focusedField, equals: .originalText)
+                        )
+                        .font(.body)
+                        .focused($focusedField, equals: .originalText)
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
                     }.padding(16)
                     #if targetEnvironment(macCatalyst)
@@ -98,14 +100,14 @@ struct ContentView: View {
 
                     ZStack {
                         Color.gray.cornerRadius(5)
-                        TextField(
-                            "",
-                            text: $convertedText,
-                            axis: .vertical
-                        )
-                        .disabled(true)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-                        .padding(8)
+                        ScrollView(.vertical, showsIndicators: true) {
+                            HStack {
+                                Text(convertedText)
+                                      .multilineTextAlignment(.leading)
+                                      .font(.body)
+                                Spacer(minLength: 0)
+                            }
+                        }.padding(8)
                     }.padding(16)
                 }
                 .navigationTitle("dna_converter_title")
