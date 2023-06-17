@@ -212,6 +212,7 @@ struct ContentView: View {
             originalText = newValue
             value = 1
             convertText()
+            historyRepository.add(history: newValue)
         }
         .onChange(of: documentPickerURLs) { newValue in
             let url = newValue.first!
