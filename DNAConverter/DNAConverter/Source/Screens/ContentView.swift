@@ -43,138 +43,150 @@ struct ContentView: View {
     @State private var isDocumentPickerShown = false
     @State private var documentPickerURLs = [URL]()
     @State private var recordState = RecordState.disable
+    @State private var toastMessage = ""
+    @State private var isToastShown = false
+    @State private var toastOpacity: CGFloat = 0.0
 
     var body: some View {
-        NavigationView {
-            VStack {
-                Picker("conversion_mode", selection: $value) {
-                    Text("segmented_title_lang").tag(0)
-                    Text("segmented_title_dna").tag(1)
-                }.pickerStyle(.segmented)
+        ZStack {
+            NavigationView {
+                VStack {
+                    Picker("conversion_mode", selection: $value) {
+                        Text("segmented_title_lang").tag(0)
+                        Text("segmented_title_dna").tag(1)
+                    }.pickerStyle(.segmented)
 
-                ZStack {
-                    Color.clear
-                    TextField(
-                        "original_place_holder",
-                        text: $originalText,
-                        axis: .vertical
-                    ).focused($focusedField, equals: .originalText)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-                }.padding(16)
-                #if targetEnvironment(macCatalyst)
-                #else
-                HStack {
-                    Spacer()
-                    Button(action: {
-                        closeKeyboard()
-                        if speechManager.isRecording {
-                            stopRecording()
-                        } else {
-                            record()
-                        }
-                    }) {
-                        switch recordState {
-                        case .enable(let isRecording):
-                            if isRecording {
+                    ZStack {
+                        Color.clear
+                        TextField(
+                            "original_place_holder",
+                            text: $originalText,
+                            axis: .vertical
+                        ).focused($focusedField, equals: .originalText)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                    }.padding(16)
+                    #if targetEnvironment(macCatalyst)
+                    #else
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            closeKeyboard()
+                            if speechManager.isRecording {
+                                stopRecording()
+                            } else {
+                                record()
+                            }
+                        }) {
+                            switch recordState {
+                            case .enable(let isRecording):
+                                if isRecording {
+                                    Image(systemName: "mic")
+                                        .renderingMode(.template)
+                                        .foregroundColor(.white)
+                                        .background(.blue)
+                                } else {
+                                    Image(systemName: "mic")
+                                }
+                            case .disable:
                                 Image(systemName: "mic")
                                     .renderingMode(.template)
-                                    .foregroundColor(.white)
-                                    .background(.blue)
-                            } else {
-                                Image(systemName: "mic")
+                                    .foregroundColor(.gray)
                             }
-                        case .disable:
-                            Image(systemName: "mic")
-                                .renderingMode(.template)
-                                .foregroundColor(.gray)
+                        }.disabled(recordState.isDisabled)
+                    }.padding(.horizontal, 16)
+                    #endif
+
+                    ZStack {
+                        Color.gray.cornerRadius(5)
+                        TextField(
+                            "",
+                            text: $convertedText,
+                            axis: .vertical
+                        )
+                        .disabled(true)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                        .padding(8)
+                    }.padding(16)
+                }
+                .navigationTitle("dna_converter_title")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarLeading){
+                        Button("clear_button_title") {
+                            closeKeyboard()
+                            clear()
                         }
-                    }.disabled(recordState.isDisabled)
-                }.padding(.horizontal, 16)
-                #endif
+                    }
 
-                ZStack {
-                    Color.gray.cornerRadius(5)
-                    TextField(
-                        "",
-                        text: $convertedText,
-                        axis: .vertical
-                    )
-                    .disabled(true)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-                    .padding(8)
-                }.padding(16)
+                    ToolbarItem(placement: .navigationBarTrailing){
+                        Button(action: {
+                            closeKeyboard()
+                            showHistory()
+                        }) {
+                            Image("icon_history")
+                                .renderingMode(.template)
+                                .foregroundColor(.blue)
+                        }
+                    }
+
+                    ToolbarItem(placement: .navigationBarTrailing){
+                        Button(action: {
+                            closeKeyboard()
+                        }) {
+                            ShareLink(item: convertedText)
+                        }
+                    }
+
+                    ToolbarItem(placement: .bottomBar) {
+                        Button("convert") {
+                            closeKeyboard()
+                            convertText()
+                        }
+                    }
+                    ToolbarItem(placement: .bottomBar) {
+                        Spacer()
+                    }
+                    ToolbarItem(placement: .bottomBar) {
+                        Button(action: {
+                            closeKeyboard()
+                            #if targetEnvironment(macCatalyst)
+                            isDocumentPickerShown.toggle()
+                            #else
+                            exportText()
+                            #endif
+                        }) {
+                            Image(systemName: "arrow.down.doc")
+                        }
+                    }
+                    ToolbarItem(placement: .bottomBar) {
+                        Button(action: {
+                            closeKeyboard()
+                            copyText()
+                        }) {
+                            Image(systemName: "doc.on.clipboard")
+                        }
+                    }
+                    ToolbarItem(placement: .bottomBar) {
+                        Button(action: {
+                            closeKeyboard()
+                            tweet()
+                        }) {
+                            Image("twitter")
+                                .resizable()
+                                .frame(width: 40, height: 40)
+                        }
+                    }
+                }
             }
-            .navigationTitle("dna_converter_title")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading){
-                    Button("clear_button_title") {
-                        closeKeyboard()
-                        clear()
-                    }
-                }
+            .navigationViewStyle(StackNavigationViewStyle())
 
-                ToolbarItem(placement: .navigationBarTrailing){
-                    Button(action: {
-                        closeKeyboard()
-                        showHistory()
-                    }) {
-                        Image("icon_history")
-                            .renderingMode(.template)
-                             .foregroundColor(.blue)
-                    }
-                }
-
-                ToolbarItem(placement: .navigationBarTrailing){
-                    Button(action: {
-                        closeKeyboard()
-                    }) {
-                        ShareLink(item: convertedText)
-                    }
-                }
-
-                ToolbarItem(placement: .bottomBar) {
-                    Button("convert") {
-                        closeKeyboard()
-                        convertText()
-                    }
-                }
-                ToolbarItem(placement: .bottomBar) {
-                    Spacer()
-                }
-                ToolbarItem(placement: .bottomBar) {
-                    Button(action: {
-                        closeKeyboard()
-                        #if targetEnvironment(macCatalyst)
-                        isDocumentPickerShown.toggle()
-                        #else
-                        exportText()
-                        #endif
-                    }) {
-                        Image(systemName: "arrow.down.doc")
-                    }
-                }
-                ToolbarItem(placement: .bottomBar) {
-                    Button(action: {
-                        closeKeyboard()
-                        copyText()
-                    }) {
-                        Image(systemName: "doc.on.clipboard")
-                    }
-                }
-                ToolbarItem(placement: .bottomBar) {
-                    Button(action: {
-                        closeKeyboard()
-                        tweet()
-                    }) {
-                        Image("twitter")
-                            .resizable()
-                            .frame(width: 40, height: 40)
-                    }
-                }
+            if isToastShown {
+                ToastView(message: $toastMessage)
+                    .frame(width: 280, height: 280)
+                    .cornerRadius(10)
+                    .opacity(toastOpacity)
             }
         }
-        .navigationViewStyle(StackNavigationViewStyle())
         .sheet(isPresented: $isHistoryShown) {
             HistoryView(isPresented: $isHistoryShown, selected: $selectedHistory)
         }
@@ -208,17 +220,36 @@ struct ContentView: View {
 
 extension ContentView {
 
+    private func showToast(message: String) {
+        toastMessage = message
+        isToastShown = true
+        let duration: TimeInterval = 0.5
+        withAnimation(.linear(duration: duration)) {
+            toastOpacity = 1.0
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + duration + 1.0) {
+            hideToast()
+        }
+    }
+
+    private func hideToast() {
+        let duration: TimeInterval = 1.0
+        withAnimation(.linear(duration: duration)) {
+            toastOpacity = 0.0
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
+            isToastShown = false
+        }
+    }
+
     private func copyText() {
-        // FIXME: トースト表示
         UIPasteboard.general.string = convertedText
+        showToast(message: NSLocalizedString("copy_message", comment: ""))
     }
 
     private func tweet() {
-        // FIXME: トースト表示
-        if twitterManager.tweet(text: convertedText) {
-
-        } else {
-
+        if !twitterManager.tweet(text: convertedText) {
+            showToast(message: NSLocalizedString("error_message", comment: ""))
         }
     }
 
@@ -261,11 +292,10 @@ extension ContentView {
             isSuccess = fileExporter.export(convertedText)
         }
 
-        // FIXME: トースト表示
         if isSuccess {
-
+            showToast(message: NSLocalizedString("download_message", comment: ""))
         } else {
-
+            showToast(message: NSLocalizedString("error_message", comment: ""))
         }
     }
 
