@@ -9,15 +9,19 @@
 import Foundation
 import Speech
 
-class SpeechManager {
-    var speechRecognizer: SFSpeechRecognizer?
+final class SpeechManager: NSObject {
+
+    private var speechRecognizer: SFSpeechRecognizer?
     private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
     private (set) var isRecording = false
+    private var authorizationHandler: ((Bool) -> Void)?
 
-    init() {
+    override init() {
+        super.init()
         speechRecognizer = SFSpeechRecognizer(locale: Self.getSpeechRecognizerLocale())
+        speechRecognizer?.delegate = self
     }
 
     private static func getSpeechRecognizerLocale() -> Locale {
@@ -40,6 +44,23 @@ class SpeechManager {
         let currentLocaleIdentifierPrefix = currentLocale.identifier.components(separatedBy: "_").first!
         let locale = supportedLocales.first { $0.identifier.hasPrefix(currentLocaleIdentifierPrefix) }
         return locale ?? Locale(identifier: "en-US")
+    }
+
+    func requestAuthorization(completion: ((Bool) -> Void)?) {
+        authorizationHandler = completion
+        SFSpeechRecognizer.requestAuthorization { authStatus in
+            OperationQueue.main.addOperation {
+                switch authStatus {
+                case .authorized:
+                    completion?(true)
+                case .denied, .restricted, .notDetermined:
+                    completion?(false)
+                @unknown default:
+                    assertionFailure("unknown authStatus")
+                    completion?(false)
+                }
+            }
+        }
     }
 
     func start(resultHandler: @escaping (String?, Bool) -> Void) throws {
@@ -84,5 +105,12 @@ class SpeechManager {
         recognitionRequest = nil
         recognitionTask = nil
         isRecording = false
+    }
+}
+
+extension SpeechManager: SFSpeechRecognizerDelegate {
+
+    func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
+        authorizationHandler?(available)
     }
 }

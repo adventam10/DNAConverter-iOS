@@ -24,7 +24,6 @@ enum RecordState {
 
 struct ContentView: View {
 
-    // FIXME: SFSpeechRecognizerの許可設定
     // FIXME: Mac版レイアウト
 
     private let dnaConverter = DNAConverter()
@@ -170,6 +169,15 @@ struct ContentView: View {
         }
         .sheet(isPresented: $isPresented) {
             HistoryView(isPresented: $isPresented)
+        }
+        .onAppear {
+            speechManager.requestAuthorization { available in
+                if available {
+                    recordState = .enable(isRecording: false)
+                } else {
+                    recordState = .disable
+                }
+            }
         }
     }
 }

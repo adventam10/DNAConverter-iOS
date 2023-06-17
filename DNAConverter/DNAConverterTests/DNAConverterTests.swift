@@ -2,8 +2,8 @@
 //  DNAConverterTests.swift
 //  DNAConverterTests
 //
-//  Created by makoto on 2023/06/17.
-//  Copyright © 2023 makoto. All rights reserved.
+//  Created by am10 on 2023/06/17.
+//  Copyright © 2023 am10. All rights reserved.
 //
 
 import XCTest
