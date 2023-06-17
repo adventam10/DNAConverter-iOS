@@ -14,8 +14,6 @@
 		0E572F132A3DAEE80073D721 /* DNAConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E572F122A3DAEE80073D721 /* DNAConverterTests.swift */; };
 		0E635DF623C8834400D6CAD4 /* HistoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E635DF523C8834400D6CAD4 /* HistoryRepository.swift */; };
 		0E635DFC23C91A5200D6CAD4 /* SpeechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E635DFB23C91A5200D6CAD4 /* SpeechManager.swift */; };
-		0E635DFE23C925F600D6CAD4 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E635DFD23C925F600D6CAD4 /* RecordButton.swift */; };
-		0E68B81C23D9E04F00441D9F /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E68B81B23D9E04F00441D9F /* ToastView.swift */; };
 		0E7A428D23DB2E9000C569FD /* FoundationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7A428C23DB2E9000C569FD /* FoundationExtensions.swift */; };
 		0E7A428F23DB2ED300C569FD /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7A428E23DB2ED300C569FD /* ArrayExtensions.swift */; };
 		0E7A429123DB311D00C569FD /* VersionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7A429023DB311D00C569FD /* VersionTest.swift */; };
@@ -27,7 +25,6 @@
 		0EF348EF23BF3774009AB96B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EF348EE23BF3774009AB96B /* Assets.xcassets */; };
 		0EF3490C23BF3F9B009AB96B /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF3490B23BF3F9B009AB96B /* StringExtensions.swift */; };
 		0EF3490E23BF734F009AB96B /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF3490D23BF734F009AB96B /* UIViewControllerExtensions.swift */; };
-		0EF3491023BF807A009AB96B /* PlaceHolderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF3490F23BF807A009AB96B /* PlaceHolderTextView.swift */; };
 		0EFD67A72A3B6E0C00632F46 /* DNAConverterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFD67A62A3B6E0C00632F46 /* DNAConverterApp.swift */; };
 		0EFD67A92A3B6E6500632F46 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFD67A82A3B6E6500632F46 /* ContentView.swift */; };
 /* End PBXBuildFile section */
@@ -50,8 +47,6 @@
 		0E572F122A3DAEE80073D721 /* DNAConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNAConverterTests.swift; sourceTree = "<group>"; };
 		0E635DF523C8834400D6CAD4 /* HistoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRepository.swift; sourceTree = "<group>"; };
 		0E635DFB23C91A5200D6CAD4 /* SpeechManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechManager.swift; sourceTree = "<group>"; };
-		0E635DFD23C925F600D6CAD4 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
-		0E68B81B23D9E04F00441D9F /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		0E7A428C23DB2E9000C569FD /* FoundationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationExtensions.swift; sourceTree = "<group>"; };
 		0E7A428E23DB2ED300C569FD /* ArrayExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		0E7A429023DB311D00C569FD /* VersionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionTest.swift; sourceTree = "<group>"; };
@@ -70,7 +65,6 @@
 		0EF348FE23BF3774009AB96B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EF3490B23BF3F9B009AB96B /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		0EF3490D23BF734F009AB96B /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
-		0EF3490F23BF807A009AB96B /* PlaceHolderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHolderTextView.swift; sourceTree = "<group>"; };
 		0EFD67A62A3B6E0C00632F46 /* DNAConverterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNAConverterApp.swift; sourceTree = "<group>"; };
 		0EFD67A82A3B6E6500632F46 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -164,20 +158,9 @@
 				0E68B81D23D9EC3600441D9F /* Screens */,
 				0E68B81E23D9EC5100441D9F /* Models */,
 				0EF3491323BF9197009AB96B /* Extensions */,
-				0EF3491223BF917B009AB96B /* CustomViews */,
 				0EFD67A62A3B6E0C00632F46 /* DNAConverterApp.swift */,
 			);
 			path = Source;
-			sourceTree = "<group>";
-		};
-		0EF3491223BF917B009AB96B /* CustomViews */ = {
-			isa = PBXGroup;
-			children = (
-				0EF3490F23BF807A009AB96B /* PlaceHolderTextView.swift */,
-				0E635DFD23C925F600D6CAD4 /* RecordButton.swift */,
-				0E68B81B23D9E04F00441D9F /* ToastView.swift */,
-			);
-			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		0EF3491323BF9197009AB96B /* Extensions */ = {
@@ -302,9 +285,6 @@
 				0EF3490C23BF3F9B009AB96B /* StringExtensions.swift in Sources */,
 				0E572F0B2A3D69FD0073D721 /* HistoryView.swift in Sources */,
 				0EFD67A92A3B6E6500632F46 /* ContentView.swift in Sources */,
-				0E635DFE23C925F600D6CAD4 /* RecordButton.swift in Sources */,
-				0E68B81C23D9E04F00441D9F /* ToastView.swift in Sources */,
-				0EF3491023BF807A009AB96B /* PlaceHolderTextView.swift in Sources */,
 				0E635DFC23C91A5200D6CAD4 /* SpeechManager.swift in Sources */,
 				0EFD67A72A3B6E0C00632F46 /* DNAConverterApp.swift in Sources */,
 				0E9CF8DD23D730D80024575D /* AppStoreManager.swift in Sources */,
