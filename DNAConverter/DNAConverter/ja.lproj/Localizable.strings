@@ -15,3 +15,12 @@
 "update_message" = "アップデートがあります";
 "copy_message" = "結果をコピーしました";
 "download_message" = "結果をダウンロードしました";
+
+"close" = "閉じる";
+"dna_converter_title" = "DNA変換";
+"history_title" = "履歴";
+"no_history_message" = "履歴がありません";
+"segmented_title_lang" = "ことば";
+"segmented_title_dna" = "ぬくれおちど";
+"conversion_mode" = "変換モード";
+"clear_button_title" = "Clear";

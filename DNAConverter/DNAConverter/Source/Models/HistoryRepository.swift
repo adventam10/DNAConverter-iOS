@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct HistoryModel {
+struct HistoryRepository {
     private let historyKey = "DNA_History_Key"
     private let maxCount = 10
     private let userDefaults = UserDefaults.standard

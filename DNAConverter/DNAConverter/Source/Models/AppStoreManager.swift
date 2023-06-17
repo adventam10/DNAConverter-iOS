@@ -1,5 +1,5 @@
 //
-//  AppStoreModel.swift
+//  AppStoreManager.swift
 //  DNAConverter
 //
 //  Created by am10 on 2020/01/21.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct AppStoreModel {
+struct AppStoreManager {
     private let version = Version(version: Bundle.main.version!)
     private var appId: String {
         #if targetEnvironment(macCatalyst)
@@ -42,7 +42,6 @@ struct AppStoreModel {
                 } else {
                     completion(.success(.noUpdate))
                 }
-                
             } catch {
                 completion(.failure(.invalidJSON))
             }

@@ -1,32 +1,22 @@
 //
-//  DNAConverterModelTests.swift
+//  DNAConverterTests.swift
 //  DNAConverterTests
 //
-//  Created by am10 on 2020/01/04.
-//  Copyright © 2020 am10. All rights reserved.
+//  Created by am10 on 2023/06/17.
+//  Copyright © 2023 am10. All rights reserved.
 //
 
 import XCTest
 @testable import DNAConverter
 
-final class DNAConverterModelTests: XCTestCase {
+final class DNAConverterTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
-    func testTwitterURL() {
-        let model = DNAConverterModel()
-        model.convertedText = nil
-        XCTAssertNil(model.twitterURL)
-        model.convertedText = ""
-        XCTAssertNil(model.twitterURL)
-        model.convertedText = "ATCG"
-        XCTAssertNotNil(model.twitterURL)
-    }
-
     func testIsEmptyTextWithText() {
-        let model = DNAConverterModel()
+        let model = DNAConverter()
         XCTAssertTrue(model.isEmptyText(""))
         XCTAssertTrue(model.isEmptyText(nil))
         XCTAssertFalse(model.isEmptyText("あいうえお"))
@@ -38,7 +28,7 @@ final class DNAConverterModelTests: XCTestCase {
     }
 
     func testIsInvalidDNAWithText() {
-        let model = DNAConverterModel()
+        let model = DNAConverter()
         XCTAssertTrue(model.isInvalidDNA(""))
         XCTAssertTrue(model.isInvalidDNA(nil))
         XCTAssertTrue(model.isInvalidDNA("あいうえ"))
@@ -52,7 +42,7 @@ final class DNAConverterModelTests: XCTestCase {
     }
 
     func testConvertToDNAWithText() {
-        let model = DNAConverterModel()
+        let model = DNAConverter()
         XCTAssertEqual(model.convertToDNA(""), .failure(.empty))
         XCTAssertEqual(model.convertToDNA(nil), .failure(.empty))
         XCTAssertEqual(model.convertToDNA("あいうえ"), .success("GCAGCAATCAACGCAGCAATCATAGCAGCAATCATCGCAGCAATCACA"))
@@ -77,9 +67,9 @@ final class DNAConverterModelTests: XCTestCase {
         XCTAssertEqual(model.convertToDNA("㊨㈱㈲㈹㍾㍽㍼≒≡∫∮∑√⊥∠∟⊿∵∩∪"), .success("GCAGCACCCCCAGCAGCACACGATGCAGCACACGACGCAGCACACGCTGCAGCAGTCGGCGCAGCAGTCGGTGCAGCAGTCGGAGCACCACTCTACGCACCACTCCATGCACCACACCCGGCACCACACCGCGCACCACACTATGCACCACACTCCGCACCACCCCTTGCACCACACCAAGCACCACACTGGGCACCACCCGGGGCACCACACGTTGCACCACACCCTGCACCACACCCC"))
         XCTAssertEqual(model.convertToDNA("😀"), .success("GGAACTGGCTCACAAA"))
     }
-    
+
     func testConvertToLanguageWithText() {
-        let model = DNAConverterModel()
+        let model = DNAConverter()
         XCTAssertEqual(model.convertToLanguage(""), .failure(.empty))
         XCTAssertEqual(model.convertToLanguage(nil), .failure(.empty))
         XCTAssertEqual(model.convertToLanguage("あいうえ"), .failure(.invalid))
