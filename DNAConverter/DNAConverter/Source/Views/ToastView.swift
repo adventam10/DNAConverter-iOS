@@ -13,16 +13,16 @@ struct ToastView: View {
     @Binding var message: String
     var body: some View {
         ZStack{
-            Color.black.opacity(0.8)
+            Color("toast_background")
             VStack {
                 Image(systemName: "checkmark")
                     .resizable()
                     .renderingMode(.template)
-                    .foregroundColor(.white)
+                    .foregroundColor(Color("toast_message"))
                     .frame(width: 100, height: 100)
                 Text(message)
                     .padding(.vertical, 8)
-                    .foregroundColor(.white)
+                    .foregroundColor(Color("toast_message"))
             }
         }
     }
