@@ -66,6 +66,15 @@ struct ContentView: View {
                         .font(.body)
                         .focused($focusedField, equals: .originalText)
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+                        .toolbar {
+                            ToolbarItemGroup(placement: .keyboard) {
+                                Spacer()
+                                Button("convert") {
+                                    closeKeyboard()
+                                    convertText()
+                                }
+                            }
+                        }
                     }.padding(16)
                     #if targetEnvironment(macCatalyst)
                     #else
